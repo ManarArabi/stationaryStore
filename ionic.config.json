@@ -1,0 +1,7 @@
+{
+  "name": "stationaryStore",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
