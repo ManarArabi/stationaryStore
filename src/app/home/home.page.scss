@@ -5,3 +5,11 @@ ion-icon {
     margin: 20px;
   }
 }
+ion-card{
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+ion-card-title{
+  text-transform:capitalize;
+}
