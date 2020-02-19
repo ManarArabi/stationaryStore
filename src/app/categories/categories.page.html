@@ -13,15 +13,15 @@
 <ion-content>
   <h2 style="margin: 20px; position: sticky;">Categories</h2>
   <ion-item *ngFor= "let c of Categories">
-    <ion-thumbnail slot="start">
+    <ion-thumbnail slot="start" routerLink="category/c.categoryId/products">
       <img src="{{c.imageUrl}}">
     </ion-thumbnail>
-    <ion-label>{{c.categoryName}}</ion-label>
+    <ion-label routerLink="category/c.categoryId/products">{{c.categoryName}}</ion-label>
   </ion-item>
   <ion-item *ngFor= "let c of Categories">
-    <ion-thumbnail slot="start">
+    <ion-thumbnail slot="start" routerLink="category/c.categoryId/products">
       <img src="{{c.imageUrl}}">
     </ion-thumbnail>
-    <ion-label>{{c.categoryName}}</ion-label>
+    <ion-label routerLink="category/c.categoryId/products">{{c.categoryName}}</ion-label>
   </ion-item>
 </ion-content>
