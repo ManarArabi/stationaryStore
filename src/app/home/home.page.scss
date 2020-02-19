@@ -5,11 +5,18 @@ ion-icon {
     margin: 20px;
   }
 }
-ion-card{
-  display: flex;
-  flex-direction: column;
-  width: 50%;
-}
+
 ion-card-title{
   text-transform:capitalize;
+}
+
+ion-card {
+  width: 50%;
+  display: inline-block;
+}
+
+.scrolling-wrapper {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
 }
