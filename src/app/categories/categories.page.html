@@ -1,9 +1,21 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>categories</ion-title>
-  </ion-toolbar>
+    <ion-toolbar color= "primary">
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-searchbar></ion-searchbar>
+      <ion-icon class= "header" name="person-add" slot="end"></ion-icon>
+      <!-- <ion-icon class= "header icon " src="../../assets/mainIcon.svg"></ion-icon> -->
+    </ion-toolbar>
+  <!-- <header-component></header-component> -->
 </ion-header>
 
 <ion-content>
-
+  <h2 style="margin: 20px;">Categories</h2>
+  <ion-item *ngFor= "let c of Categories">
+    <ion-thumbnail slot="start">
+      <img src="{{c.imageUrl}}">
+    </ion-thumbnail>
+    <ion-label>{{c.categoryName}}</ion-label>
+  </ion-item>
 </ion-content>

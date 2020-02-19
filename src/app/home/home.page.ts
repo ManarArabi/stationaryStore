@@ -15,7 +15,6 @@ export class HomePage implements OnInit {
   ngOnInit() {
     this.getBestSeller();
     this.getCategories();
-    console.log(this.Categories)
   }
 
   getBestSeller():void{
