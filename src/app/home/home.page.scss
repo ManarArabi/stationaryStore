@@ -13,10 +13,33 @@ ion-card-title{
 ion-card {
   width: 50%;
   display: inline-block;
+  margin-bottom: 20px;
 }
 
 .scrolling-wrapper {
   overflow-x: scroll;
   overflow-y: hidden;
   white-space: nowrap;
+}
+
+.centering {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.centeredVertically {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.container {
+  position: relative;
+  text-align: center;
+}
+
+.bigWithShadow{
+  text-shadow: 1px 1px black;
+  font-size: 40px;
 }

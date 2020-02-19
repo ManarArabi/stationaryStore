@@ -8,7 +8,6 @@
 </ion-header>
 
 <ion-content>
-  
   <h2 style="margin: 20px;"> Best Seller </h2>
   <div class="scrolling-wrapper">
     <ion-card *ngFor= "let bs of BestSeller">
@@ -21,23 +20,21 @@
       </ion-card-header>
     </ion-card>
   </div>
-        
-
-<!--     
+  <div class="container">
+    <ion-img src="../../assets/packages.jpg" class="centering"></ion-img>
+    <ion-text style="text-transform: uppercase;" class="centeredVertically bigWithShadow" color="primary">Enjoy<br> pre-prepared <br> packages</ion-text>
+  </div>
+  
   <h2 style="margin: 20px;"> Offers </h2>
-  <ion-slides>
-    <ion-slide>
-      <ion-card *ngFor= "let bs of BestSeller">
-        <ion-card-header>
-          <img src="{{bs.imageUrl[0].imageUrl}}"/>
-          <ion-card-title>
-            {{bs.productName}}
-            <ion-text style="float:right;" color = "success"> {{bs.price-((bs.discount/100)*bs.price)}}$ </ion-text>
-          </ion-card-title>
-        </ion-card-header>
-      </ion-card>
-    </ion-slide>
-  </ion-slides> -->
-
-
+  <div class="scrolling-wrapper">
+    <ion-card *ngFor= "let bs of BestSeller">
+      <ion-card-header>
+        <img src="{{bs.imageUrl[0].imageUrl}}"/>
+        <ion-card-title>
+          {{bs.productName}}
+          <ion-text style="float:right;" color="success"> {{bs.price-((bs.discount/100)*bs.price)}}$ </ion-text>
+        </ion-card-title>
+      </ion-card-header>
+    </ion-card>
+  </div>
 </ion-content>
