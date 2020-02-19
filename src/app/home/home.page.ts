@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../services/product.service';
-
+import { CategoryService } from '../services/category.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
@@ -8,12 +8,12 @@ import { ProductService } from '../services/product.service';
 })
 export class HomePage implements OnInit {
   BestSeller;
-  constructor(private ps: ProductService) { 
-    
-  }
+  Categories;
+  constructor(private ps: ProductService, private cs: CategoryService) { }
 
   ngOnInit() {
-    this.getBestSeller()
+    this.getBestSeller();
+    this.getCategories();
   }
 
   getBestSeller():void{
@@ -22,5 +22,9 @@ export class HomePage implements OnInit {
 
   CalculatePriceAfterDiscount(bs):number{
     return bs.price - ((bs.discount/100)*bs.price)
+  }
+
+  getCategories():void{
+    this.cs.getCategories().subscribe(categories => this.Categories = categories);
   }
 }
