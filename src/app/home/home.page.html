@@ -37,4 +37,16 @@
       </ion-card-header>
     </ion-card>
   </div>
+
+  <h2 style="margin: 20px;"> Categories </h2>
+  <div class="scrolling-wrapper">
+    <ion-card *ngFor= "let c of Categories">
+      <ion-card-header>
+        <img src="{{c.imageUrl}}"/>
+        <ion-card-title>
+          {{c.categoryName}}
+        </ion-card-title>
+      </ion-card-header>
+    </ion-card>
+  </div>
 </ion-content>

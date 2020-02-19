@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../services/product.service';
 import { CategoryService } from '../services/category.service';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
@@ -14,6 +15,7 @@ export class HomePage implements OnInit {
   ngOnInit() {
     this.getBestSeller();
     this.getCategories();
+    console.log(this.Categories)
   }
 
   getBestSeller():void{
