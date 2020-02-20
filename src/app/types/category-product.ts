@@ -1,4 +1,3 @@
-import {Product} from './bestSeller'
 export interface CategoryProduct{
     productId : number,
     productName : string,
