@@ -1,4 +1,4 @@
-import { Product } from '../categories/types/bestSeller';
+import { Product } from '../types/bestSeller';
 
 export const BestSeller:Product[] = [
   {
