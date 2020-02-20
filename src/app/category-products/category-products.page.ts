@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-category-products',
@@ -6,8 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./category-products.page.scss'],
 })
 export class CategoryProductsPage implements OnInit {
-
-  constructor() { }
+  id: number;
+  constructor(private route: ActivatedRoute) {
+    this.id = this.route.snapshot.params['id'];
+   }
 
   ngOnInit() {
   }

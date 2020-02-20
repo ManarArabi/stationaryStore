@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CategoryService } from '../services/category.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-categories',
@@ -8,7 +9,7 @@ import { CategoryService } from '../services/category.service';
 })
 export class CategoriesPage implements OnInit {
   Categories;
-  constructor(private cs: CategoryService) { }
+  constructor(private cs: CategoryService, private router: Router) { }
 
   ngOnInit() {
     this.getCategories();
@@ -16,5 +17,9 @@ export class CategoriesPage implements OnInit {
 
   getCategories():void{
     this.cs.getCategories().subscribe(categories => this.Categories = categories);
+  }
+
+  navToCategoryProducts(id):void{
+    this.router.navigate(['/category-products', id]);
   }
 }
