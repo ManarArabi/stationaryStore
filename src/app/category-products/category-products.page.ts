@@ -17,6 +17,7 @@ export class CategoryProductsPage implements OnInit {
    }
 
   ngOnInit() {
+    this.getCategoryProduct()
   }
 
   getCategoryProduct(){
