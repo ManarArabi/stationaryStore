@@ -7,9 +7,9 @@
 <ion-content>
   <h2 style="margin: 20px; position: sticky;">Categories</h2>
   <ion-item *ngFor= "let c of Categories">
-    <ion-thumbnail slot="start" (click)="navToCategoryProducts(c.categoryId)">
+    <ion-thumbnail slot="start" [routerLink]="['/category-products/', c.categoryId, c.categoryName]" routerDirection="forward">
       <img src="{{c.imageUrl}}">
     </ion-thumbnail>
-    <ion-label (click)="navToCategoryProducts(c.categoryId)">{{c.categoryName}}</ion-label>
+    <ion-label style="padding: 10px;" [routerLink]="['/category-products/', c.categoryId, c.categoryName]" routerDirection="forward">{{c.categoryName}}</ion-label>
   </ion-item>
 </ion-content>

@@ -20,7 +20,7 @@
           </ion-list-header>
           <ion-item *ngFor="let p of appPages">
             <ion-icon slot="start" color="light" name="{{p.icon}}"></ion-icon>
-            <ion-label routerLink="{{p.url}}" color="light" (click)="menuClose()" style="padding: 10px;">{{ p.title }}</ion-label>
+            <ion-label routerLink="{{p.url}}" routerDirection="forward" color="light" (click)="menuClose()" style="padding: 10px;">{{ p.title }}</ion-label>
           </ion-item>
         </ion-list>
       </ion-content>
