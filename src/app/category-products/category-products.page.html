@@ -18,7 +18,9 @@
     <h3>{{ p.productName }}</h3>
     <!-- <h3> - {{ p.discount }}% </h3> -->
     <ion-label></ion-label>
-    <p> {{ p.price }}$</p>
+    <!-- font coloring isn't working -->
+    <p *ngIf="p.dicount" color="success">{{ p.price-((p.discount/100)*p.price) }}$</p>
+    <p> {{ p.price-((p.discount/100)*p.price) }}$</p>
     <ion-icon name="cart" color="primary" style="padding: 10px;"></ion-icon>
   </ion-item>
 </ion-content>
