@@ -2,6 +2,17 @@
   <ion-split-pane contentId="main-content">
     <ion-menu contentId="main-content" type="overlay" color="primary">
       <ion-content>
+        <!-- <ion-list id="inbox-list">
+          
+
+          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
+            <ion-item (click)="selectedIndex = i" routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" [class.selected]="selectedIndex == i">
+              <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
+              <ion-label>{{ p.title }}</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list> -->
+
         <ion-list id="labels-list">
           <ion-list-header>
             <ion-icon class= "header icon" src="../assets/mainIcon.svg" style="width: 40px; height: 40px;"></ion-icon>
@@ -9,7 +20,7 @@
           </ion-list-header>
           <ion-item *ngFor="let p of appPages">
             <ion-icon slot="start" color="light" name="{{p.icon}}"></ion-icon>
-            <ion-label routerLink="{{p.url}}" color="light" (click)="menuClose()">{{ p.title }}</ion-label>
+            <ion-label routerLink="{{p.url}}" color="light" (click)="menuClose()" style="padding: 10px;">{{ p.title }}</ion-label>
           </ion-item>
         </ion-list>
       </ion-content>
