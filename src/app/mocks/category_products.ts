@@ -1,11 +1,5 @@
 import { CategoryProduct } from '../types/category-product';
-export interface n{
-    productId : number,
-    productName : string,
-    imageUrl: string,
-    discount: number,
-    price: number
-}
+
 export const CategoryProducts:CategoryProduct[] = [
     {
         productId : 3,
