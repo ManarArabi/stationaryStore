@@ -26,4 +26,7 @@ export class CategoryProductsPage implements OnInit {
     this.category = this.rds.getRequestData()
   }
 
+  getSelectedProduct(product): void{
+    this.rds.setRequestData(product);
+  }
 }

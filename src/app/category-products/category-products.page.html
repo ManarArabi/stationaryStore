@@ -13,9 +13,9 @@
   <h2 style="margin: 20px;"> {{ CategoryName }} </h2>
   <ion-item *ngFor="let p of Products">
     <ion-thumbnail slot="start">
-      <img src="{{p.imageUrl}}">
+      <img routerLink="/product-details" (click)="getSelectedProduct(p)" src="{{p.imageUrl}}">
     </ion-thumbnail>
-    <h2 class="centering"> {{ p.productName }} </h2>
+    <h2 class="centering" routerLink="/product-details" (click)="getSelectedProduct(p)"> {{ p.productName }} </h2>
     <p class="price" *ngIf="p.price == p.price-(p.discount/100)"> {{ p.price }}$</p>
     <p *ngIf="p.price != p.price-(p.discount/100)" class="discount"> {{ p.price-((p.discount/100)*p.price) }}$</p>
     <ion-icon name="cart" color="primary" class="cart"></ion-icon>

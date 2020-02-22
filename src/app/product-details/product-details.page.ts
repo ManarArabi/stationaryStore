@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RequestDataService } from '../services/request-data/request-data.service';
 
 @Component({
   selector: 'app-product-details',
@@ -6,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./product-details.page.scss'],
 })
 export class ProductDetailsPage implements OnInit {
-
-  constructor() { }
+  Product;
+  constructor(private rds: RequestDataService) { }
 
   ngOnInit() {
+    this.getCurrentProduct();
+    console.log(this.Product)
+  }
+
+  getCurrentProduct(){
+    this.Product = this.rds.getRequestData();
   }
 
 }
