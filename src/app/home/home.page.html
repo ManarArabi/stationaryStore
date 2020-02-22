@@ -18,7 +18,8 @@
         <ion-card-title>
           {{bs.productName}}
           <ion-icon name="cart" class="cart"></ion-icon>
-          <ion-text style="float:right;"> {{bs.price}}$ </ion-text>
+          <ion-text *ngIf="bs.price == bs.price-(bs.discount/100)" style="float:right;"> {{bs.price}}$ </ion-text>
+          <ion-text *ngIf="bs.price != bs.price-(bs.discount/100)" style="float:right; color: goldenrod;"> {{bs.price-((bs.discount/100)*bs.price)}}$ </ion-text>
         </ion-card-title>
       </ion-card-header>
     </ion-card>
@@ -36,7 +37,7 @@
         <ion-card-title>
           {{bs.productName}}
           <ion-icon name="cart" class="cart"></ion-icon>
-          <ion-text style="float:right;" color="success"> {{bs.price-((bs.discount/100)*bs.price)}}$ </ion-text>
+          <ion-text style="float:right; color: goldenrod;"> {{bs.price-((bs.discount/100)*bs.price)}}$ </ion-text>
         </ion-card-title>
       </ion-card-header>
     </ion-card>

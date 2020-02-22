@@ -11,7 +11,7 @@ export const BestSeller:Product[] = [
           "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ5_7MuVWiQXSVNwkXwQdQ2AaAlD02oNtbYnoGcPbY0ptjAgY0G"
         }
       ],
-      "discount": 10,
+      "discount": 0,
       "minStock": 4,
       "price": 30
   },{

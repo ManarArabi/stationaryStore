@@ -19,7 +19,7 @@ export class CategoryProductsPage implements OnInit {
   }
 
   getCategoryProduct(){
-    this.cps.getCategoryProducts(this.category.id).subscribe(products => this.Products = products);
+    this.cps.getCategoryProducts(this.category.categoryId).subscribe(products => this.Products = products);
   }
 
   getCategory(): void{
