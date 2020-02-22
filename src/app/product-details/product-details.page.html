@@ -1,9 +1,38 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>product_details</ion-title>
+  <ion-toolbar color= "light">
+    <ion-buttons slot="start">
+      <ion-menu-button color="primary"></ion-menu-button>
+    </ion-buttons>
+    <ion-icon class= "header" name="person-add" slot="end" color="primary"></ion-icon>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <div style="position: relative; top: 10%;">
+    <img class="product-image" src="{{Product.imageUrl[0].imageUrl}}"/>
+    <h1 class="product-name"> {{Product.productName}} </h1>
+  </div>
+  <div class="footer">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="9">
+          <span class="details">
+            {{Product.description}}
+          </span>
+        </ion-col>
+        <ion-col size="3">
+          <h1 style="font-weight: bold;">
+            {{Product.price-((Product.discount/100)*Product.price)}}$
+          </h1>
+        </ion-col>
+      </ion-row>
+      <ion-row style="margin-top: 20px">
+        <ion-col size="12">
+          <ion-button expand="full" color="tertiary">Add to Cart</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>  
+    
+  </div>
 
 </ion-content>

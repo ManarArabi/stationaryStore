@@ -8,11 +8,11 @@ import { RequestDataService } from '../services/request-data/request-data.servic
 })
 export class ProductDetailsPage implements OnInit {
   Product;
-  constructor(private rds: RequestDataService) { }
+  constructor(private rds: RequestDataService) {
+    this.getCurrentProduct();
+   }
 
   ngOnInit() {
-    this.getCurrentProduct();
-    console.log(this.Product)
   }
 
   getCurrentProduct(){
