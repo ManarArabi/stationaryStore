@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CategoryService } from '../services/category/category.service';
+import { RequestDataService } from '../services/request-data/request-data.service';
 
 @Component({
   selector: 'app-categories',
@@ -8,7 +9,7 @@ import { CategoryService } from '../services/category/category.service';
 })
 export class CategoriesPage implements OnInit {
   Categories;
-  constructor(private cs: CategoryService) { }
+  constructor(private cs: CategoryService, private rds: RequestDataService) { }
 
   ngOnInit() {
     this.getCategories();
@@ -18,4 +19,7 @@ export class CategoriesPage implements OnInit {
     this.cs.getCategories().subscribe(categories => this.Categories = categories);
   }
 
+  getSelectedCategory(category):void{
+    this.rds.setRequestData(category);
+  }
 }
