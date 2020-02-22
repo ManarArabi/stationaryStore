@@ -9,3 +9,31 @@ ion-thumbnail {
     width: 25%;
     height: 25%;
 }
+
+.centering {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.price{
+    position: absolute;
+    top: 70%;
+    left: 90%;
+    transform: translate(-90%, -90%);
+}
+
+.discount{
+    position: absolute;
+    top: 70%;
+    left: 90%;
+    transform: translate(-90%, -90%);
+    color: goldenrod;
+}
+
+.cart{
+    padding: 10px;
+    position: absolute;
+    top: 90%;
+    left: 80%;
+    transform: translate(-90%, -90%);
+}
