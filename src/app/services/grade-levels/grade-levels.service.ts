@@ -1,16 +1,15 @@
 import { Injectable } from '@angular/core';
-import { GradeLevels } from './../../mocks/grade-levels';
-import { GradeLevel } from './../../types/grade-levels';
 import { Observable, of } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GradeLevelsService {
+  url = 'http://192.168.1.125:8081/stationery_store_api_war'
+  constructor(private http: HttpClient) { }
 
-  constructor() { }
-
-  getGradeLevels(): Observable<GradeLevel[]>{
-    return of(GradeLevels);
+  getGradeLevels(): Observable<any>{
+    return this.http.get(this.url+'/api/grade/levels');
   }
 }
