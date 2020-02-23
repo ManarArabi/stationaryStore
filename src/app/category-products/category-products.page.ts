@@ -19,7 +19,10 @@ export class CategoryProductsPage implements OnInit {
   }
 
   getCategoryProduct(){
-    this.cs.getCategoryProducts(this.category.id).subscribe(products => this.Products = products);
+    this.cs.getCategoryProducts(this.category.id).subscribe((products) => {
+      this.Products = products
+      console.log(products)
+    });
   }
 
   getCategory(): void{
