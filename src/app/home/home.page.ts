@@ -41,21 +41,11 @@ export class HomePage implements OnInit {
     this.rds.setRequestData(product);
   }
 
-  async openPopover(args) {
+  async openPopover() {
     const popover = await this.popoverCtrl.create({
       component: GradeLevelsComponent,
-      event: args,
-      translucent: false
+      animated: true
     });
     return await popover.present();
   }
-  // showGradeLevels(ev: any){
-  //   const popover = this.popoverCtrl.create({
-  //     component: GradeLevelsComponent,
-  //     event: ev,
-  //     animated: true,
-  //     showBackdrop: true
-  //   });
-  //   return popover.present();
-  // }
 }
