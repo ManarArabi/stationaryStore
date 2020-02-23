@@ -11,13 +11,15 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { ComponentsModule } from './components/components.module';
 import { HeaderComponent } from './components/header/header.component';
+import { GradeLevelsComponent } from './components/grade-levels/grade-levels.component';
 
 @NgModule({
   declarations: [
     AppComponent
   ],
   entryComponents: [
-    HeaderComponent
+    HeaderComponent,
+    GradeLevelsComponent
   ],
   imports: [
     BrowserModule,
