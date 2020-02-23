@@ -9,12 +9,12 @@
   <div class="scrolling-wrapper">
     <ion-card *ngFor= "let bs of BestSeller">
       <ion-card-header>
-        <img routerLink="/product-details" (click)="getSelectedProduct(bs)" src="{{bs.imageUrl[0].imageUrl}}" class="card-image"/>
+        <img routerLink="/product-details" (click)="getSelectedProduct(bs)" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ5_7MuVWiQXSVNwkXwQdQ2AaAlD02oNtbYnoGcPbY0ptjAgY0G" class="card-image centering"/>
         <ion-card-title routerLink="/product-details" (click)="getSelectedProduct(bs)">
-          {{bs.productName}}
+          {{bs.product.productName}}
           <ion-icon name="cart" class="cart"></ion-icon>
-          <ion-text *ngIf="bs.price == bs.price-(bs.discount/100)" style="float:right;"> {{bs.price}}$ </ion-text>
-          <ion-text *ngIf="bs.price != bs.price-(bs.discount/100)" style="float:right; color: goldenrod;"> 
+          <ion-text *ngIf="bs.price == bs.price-(bs.discount/100)" class="price"> {{bs.price}}$ </ion-text>
+          <ion-text *ngIf="bs.price != bs.price-(bs.discount/100)" style="color: goldenrod;" class="price"> 
             {{bs.price-((bs.discount/100)*bs.price)}}$ 
           </ion-text>
         </ion-card-title>
@@ -36,7 +36,7 @@
         <ion-card-title routerLink="/product-details" (click)="getSelectedProduct(o.offer.product)">
           {{o.offer.product.productName}}
           <ion-icon name="cart" class="cart"></ion-icon>
-          <ion-text style="float:right; color: goldenrod; margin-left: 10px;"> 
+          <ion-text style="color: goldenrod;" class="price"> 
             {{o.price-((o.offer.discount/100)*o.price)}}$ 
           </ion-text>
         </ion-card-title>
