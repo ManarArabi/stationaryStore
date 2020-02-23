@@ -2,14 +2,15 @@ import { Injectable } from '@angular/core';
 import { Categories } from '../../mocks/categories';
 import { Category } from '../../types/category';
 import { Observable, of } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CategoryService {
-
-  constructor() { }
-  getCategories():Observable<Category[]>{
-    return of(Categories);
+  url = 'http://192.168.1.125:8081/stationery_store_api_war'
+  constructor(private http: HttpClient) { }
+  getCategories():Observable<any>{
+    return this.http.get(this.url+'/api/category?limit=6');
   }
 }
