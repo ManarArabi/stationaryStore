@@ -4,9 +4,14 @@ ion-card-title{
 }
 
 ion-card {
-  width: 160px;
+  width: auto;
   display: inline-block;
   margin-bottom: 20px;
+}
+
+.card-image{
+  width: 140px;
+  height: 140px;
 }
 
 .scrolling-wrapper {

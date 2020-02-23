@@ -9,7 +9,7 @@
   <div class="scrolling-wrapper">
     <ion-card *ngFor= "let bs of BestSeller">
       <ion-card-header>
-        <img routerLink="/product-details" (click)="getSelectedProduct(bs)" src="{{bs.imageUrl[0].imageUrl}}"/>
+        <img routerLink="/product-details" (click)="getSelectedProduct(bs)" src="{{bs.imageUrl[0].imageUrl}}" class="card-image"/>
         <ion-card-title routerLink="/product-details" (click)="getSelectedProduct(bs)">
           {{bs.productName}}
           <ion-icon name="cart" class="cart"></ion-icon>
@@ -30,13 +30,15 @@
   
   <h2 style="margin: 20px;"> Offers </h2>
   <div class="scrolling-wrapper">
-    <ion-card *ngFor= "let bs of BestSeller">
+    <ion-card *ngFor= "let o of Offers">
       <ion-card-header>
-        <img routerLink="/product-details" (click)="getSelectedProduct(bs)" src="{{bs.imageUrl[0].imageUrl}}"/>
-        <ion-card-title routerLink="/product-details" (click)="getSelectedProduct(bs)">
-          {{bs.productName}}
+        <img routerLink="/product-details" (click)="getSelectedProduct(o.offer.product)" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ5_7MuVWiQXSVNwkXwQdQ2AaAlD02oNtbYnoGcPbY0ptjAgY0G" class="card-iamge"/>
+        <ion-card-title routerLink="/product-details" (click)="getSelectedProduct(o.offer.product)">
+          {{o.offer.product.productName}}
           <ion-icon name="cart" class="cart"></ion-icon>
-          <ion-text style="float:right; color: goldenrod;"> {{bs.price-((bs.discount/100)*bs.price)}}$ </ion-text>
+          <ion-text style="float:right; color: goldenrod; margin-left: 10px;"> 
+            {{o.price-((o.offer.discount/100)*o.price)}}$ 
+          </ion-text>
         </ion-card-title>
       </ion-card-header>
     </ion-card>
@@ -46,7 +48,7 @@
   <div class="scrolling-wrapper">
     <ion-card *ngFor= "let c of Categories">
       <ion-card-header>
-        <img src="{{c.imageUrl}}"/>
+        <img src="{{c.imageUrl}}" class="card-image"/>
         <ion-card-title>
           {{c.categoryName}}
         </ion-card-title>
