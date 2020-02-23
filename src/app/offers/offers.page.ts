@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductService } from './../services/product/product.service'; 
+import { OffersService } from '../services/offer/offers.service';
+
 @Component({
   selector: 'app-offers',
   templateUrl: './offers.page.html',
@@ -7,12 +8,13 @@ import { ProductService } from './../services/product/product.service';
 })
 export class OffersPage implements OnInit {
   Offers;
-  constructor(private ps: ProductService) { }
+  constructor(private os:OffersService) { }
 
   ngOnInit() {
     this.getOffers()
   }
 
   getOffers():void{
-    this.ps.getBestSeller().subscribe(Products => this.Offers = Products);  }
+    this.os.getOffers().subscribe((Products) => {this.Offers = Products; console.log(Products)});
+  }
 }
