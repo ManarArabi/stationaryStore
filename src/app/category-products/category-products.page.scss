@@ -1,10 +1,4 @@
-ion-icon {
-    &.header {
-        width: 30px;
-        height: 30px;
-        margin: 20px;
-    }
-}
+
 ion-thumbnail {
     width: 25%;
     height: 25%;
@@ -16,24 +10,23 @@ ion-thumbnail {
 }
 
 .price{
-    position: absolute;
-    top: 70%;
-    left: 90%;
+    position: relative;
+    top: 40%;
+    left: 15%;
     transform: translate(-90%, -90%);
 }
 
 .discount{
-    position: absolute;
-    top: 70%;
-    left: 90%;
+    position: relative;
+    top: 40%;
+    left: 22%;
     transform: translate(-90%, -90%);
     color: goldenrod;
 }
 
 .cart{
     padding: 10px;
-    position: absolute;
-    top: 90%;
-    left: 80%;
+    position: relative;
+    top: 60%;
     transform: translate(-90%, -90%);
 }
