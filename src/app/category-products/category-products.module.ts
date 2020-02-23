@@ -8,12 +8,15 @@ import { CategoryProductsPageRoutingModule } from './category-products-routing.m
 
 import { CategoryProductsPage } from './category-products.page';
 
+import { ComponentsModule } from './../components/components.module';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    CategoryProductsPageRoutingModule
+    CategoryProductsPageRoutingModule,
+    ComponentsModule
   ],
   declarations: [CategoryProductsPage]
 })
