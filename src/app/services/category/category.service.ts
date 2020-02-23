@@ -11,4 +11,8 @@ export class CategoryService {
   getCategories():Observable<any>{
     return this.http.get(this.url+'/api/category?limit=6');
   }
+
+  getCategoryProducts(id):Observable<any>{
+    return this.http.get(this.url+'/api/category/'+id+'/products')
+  }
 }

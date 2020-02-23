@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CategoryProductsService } from './../services/category_products/category-products.service';
 import { RequestDataService } from '../services/request-data/request-data.service';
+import { CategoryService } from '../services/category/category.service';
 
 @Component({
   selector: 'app-category-products',
@@ -10,7 +10,7 @@ import { RequestDataService } from '../services/request-data/request-data.servic
 export class CategoryProductsPage implements OnInit {
   category;
   Products;
-  constructor(private cps: CategoryProductsService, private rds: RequestDataService) {
+  constructor(private rds: RequestDataService, private cs: CategoryService) {
   }
 
   ngOnInit() {
@@ -19,7 +19,7 @@ export class CategoryProductsPage implements OnInit {
   }
 
   getCategoryProduct(){
-    this.cps.getCategoryProducts(this.category.categoryId).subscribe(products => this.Products = products);
+    this.cs.getCategoryProducts(this.category.id).subscribe(products => this.Products = products);
   }
 
   getCategory(): void{
