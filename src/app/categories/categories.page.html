@@ -10,6 +10,8 @@
     <ion-thumbnail slot="start" (click)="getSelectedCategory(c)" routerLink="/category-products" routerDirection="forward">
       <img src="{{c.imageUrl}}">
     </ion-thumbnail>
-    <ion-label style="padding: 10px;" (click)="getSelectedCategory(c)" routerLink="/category-products" routerDirection="forward">{{c.categoryName}}</ion-label>
+    <ion-label style="padding: 10px;" (click)="getSelectedCategory(c)" routerLink="/category-products" routerDirection="forward">
+      {{c.name}}
+    </ion-label>
   </ion-item>
 </ion-content>

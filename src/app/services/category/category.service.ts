@@ -1,6 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Categories } from '../../mocks/categories';
-import { Category } from '../../types/category';
 import { Observable, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
