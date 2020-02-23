@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GradeLevelsService } from './../../services/grade-levels/grade-levels.service';
 
 @Component({
   selector: 'app-grade-levels',
@@ -6,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./grade-levels.component.scss'],
 })
 export class GradeLevelsComponent implements OnInit {
+  GradeLevels;
+  constructor(private gls: GradeLevelsService) { }
 
-  constructor() { }
+  ngOnInit() {
+    this.getGradeLevels();
+  }
 
-  ngOnInit() {}
-
+  getGradeLevels():void{
+    this.gls.getGradeLevels().subscribe(gradeLevels => this.GradeLevels = gradeLevels);
+  }
 }
