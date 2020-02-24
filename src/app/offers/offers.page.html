@@ -17,12 +17,16 @@
       <ion-row>
         <ion-col>
           <ion-thumbnail>
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ5_7MuVWiQXSVNwkXwQdQ2AaAlD02oNtbYnoGcPbY0ptjAgY0G">
+            <img 
+              routerLink="/product-details" 
+              (click)="getSelectedProduct(o)" 
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ5_7MuVWiQXSVNwkXwQdQ2AaAlD02oNtbYnoGcPbY0ptjAgY0G"
+            >
           </ion-thumbnail>
         </ion-col>
         <ion-col style="text-align: center;">
           <div class="product-name">
-            <h2>
+            <h2 routerLink="/product-details" (click)="getSelectedProduct(o)">
               {{o.offer.product.productName}}
             </h2>
           </div>
