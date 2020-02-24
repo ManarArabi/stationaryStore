@@ -34,7 +34,13 @@ export class HomePage implements OnInit {
   }
 
   getBestSeller():void{
-    this.ps.getBestSeller().subscribe((Products) => {this.BestSeller = Products; console.log(Products)});
+    this.ps.getBestSeller().subscribe((Products) => {
+      this.BestSeller = Products; 
+      this.BestSeller.forEach(bs => {
+        bs.price = this.ps.calculatePrice(bs);
+      });
+      console.log(Products)
+    });
   }
 
   CalculatePriceAfterDiscount(bs):number{
@@ -67,7 +73,10 @@ export class HomePage implements OnInit {
 
   getOffers(){
     this.offersService.getOffers().subscribe((offers) => {
-      this.Offers = offers
+      this.Offers = offers;
+      this.Offers.forEach(offer => {
+        offer.price = this.ps.calculatePrice(offer)
+      });
       console.log(offers);
     });
   }

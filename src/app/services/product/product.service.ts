@@ -7,7 +7,7 @@ import { Product } from '../../types/Product';
   providedIn: 'root'
 })
 export class ProductService {
-  url = 'http://192.168.1.125:8081/stationery_store_api_war';
+  url = 'http://192.168.1.3:8081/stationery_store_api_war';
   SelectedProduct: Product = {
     id: 0,
     name: "",
@@ -38,6 +38,7 @@ export class ProductService {
     this.SelectedProduct.imageUrl = obj.offer.product.imageUrl;
     this.SelectedProduct.discount = obj.offer.discount;
     this.SelectedProduct.price = obj.price;
+    this.SelectedProduct.price = this.calculatePrice(obj);
     console.log(this.SelectedProduct)
     return this.SelectedProduct
   }
@@ -49,7 +50,16 @@ export class ProductService {
     this.SelectedProduct.imageUrl = obj.product.imageUrl;
     this.SelectedProduct.discount = obj.discount;
     this.SelectedProduct.price = obj.price;
+    this.SelectedProduct.price = this.calculatePrice(obj);
     console.log(this.SelectedProduct)
     return this.SelectedProduct
+  }
+
+  calculatePrice(o):any{
+    let PriceAfterDiscount = o.price - (o.offer.discount/100)*o.price;
+    if(PriceAfterDiscount<1){
+      return o.price;
+    }
+    return PriceAfterDiscount.toPrecision(3);
   }
 }

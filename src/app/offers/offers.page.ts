@@ -23,18 +23,10 @@ export class OffersPage implements OnInit {
   getOffers():void{
     this.os.getOffers().subscribe((Products) => {
       Products.forEach(offer => {
-        offer.price = this.calculatePrice(offer);
+        offer.price = this.ps.calculatePrice(offer);
       });
       this.Offers = Products;
     });
-  }
-
-  calculatePrice(o):any{
-    let PriceAfterDiscount = o.price - (o.offer.discount/100)*o.price;
-    if(PriceAfterDiscount<1){
-      return o.price;
-    }
-    return PriceAfterDiscount.toPrecision(3);
   }
 
   getSelectedProduct(obj):void{

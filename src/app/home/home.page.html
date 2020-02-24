@@ -17,7 +17,7 @@
           <ion-icon name="cart" class="cart"></ion-icon>
           <ion-text *ngIf="bs.price == bs.price-(bs.discount/100)" class="price"> {{bs.price}}$ </ion-text>
           <ion-text *ngIf="bs.price != bs.price-(bs.discount/100)" style="color: goldenrod;" class="price"> 
-            {{bs.price-((bs.discount/100)*bs.price)}}$ 
+            {{bs.price}}$ 
           </ion-text>
         </ion-card-title>
       </ion-card-header>
@@ -39,7 +39,7 @@
           {{o.offer.product.productName}}
           <ion-icon name="cart" class="cart"></ion-icon>
           <ion-text style="color: goldenrod;" class="price"> 
-            {{o.price-((o.offer.discount/100)*o.price)}}$ 
+            {{o.price}}$ 
           </ion-text>
         </ion-card-title>
       </ion-card-header>

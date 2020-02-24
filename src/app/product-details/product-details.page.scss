@@ -22,8 +22,8 @@ ion-icon {
     background-color: #044C75;
     width: 100%; 
     height: 200px;
-    position: relative;
-    top: 15%;
+    position: absolute;
+    bottom: 0%;
     color: white;
 }
 
@@ -31,5 +31,4 @@ ion-icon {
     position: relative;
     top: 10%;
     padding: 20px;
-    font-size: 30px;
 }
