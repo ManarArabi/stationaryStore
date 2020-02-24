@@ -52,7 +52,9 @@ export class HomePage implements OnInit {
   }
 
   getSelectedProduct(obj):void{
-    this.rds.setRequestData(this.ps.castObjToProductOnly(obj));
+    let x: any = this.ps.castObjToProductOnly(obj)
+    console.log(x)
+    this.rds.setRequestData(x);
   }
 
   getSelectedProductFromOffer(offer){

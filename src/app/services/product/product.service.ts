@@ -56,10 +56,24 @@ export class ProductService {
   }
 
   calculatePrice(o):any{
-    let PriceAfterDiscount = o.price - (o.offer.discount/100)*o.price;
+    let PriceAfterDiscount;
+    if(o.offer != null) {
+      PriceAfterDiscount = this.OfferPrice(o)
+    }else{
+      PriceAfterDiscount = this.ProductPrice(o)
+    }
+    
     if(PriceAfterDiscount<1){
       return o.price;
     }
     return PriceAfterDiscount.toPrecision(3);
+  }
+
+  OfferPrice(o):any{
+    return o.price - (o.offer.discount/100)*o.price;
+  }
+
+  ProductPrice(o):any{
+    return o.price - (o.discount/100)*o.price;
   }
 }
