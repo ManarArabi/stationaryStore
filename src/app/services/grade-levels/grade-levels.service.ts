@@ -12,4 +12,12 @@ export class GradeLevelsService {
   getGradeLevels(): Observable<any>{
     return this.http.get(this.url+'/api/grade/levels');
   }
+
+  getGrades(id): Observable<any>{
+    return this.http.get(this.url+'/api/grade/level/'+id);
+  }
+
+  getGradeProducts(id): Observable<any>{
+    return this.http.get(this.url+'/api/grade/'+id+'/products');
+  }
 }
