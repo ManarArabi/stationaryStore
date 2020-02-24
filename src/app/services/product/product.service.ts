@@ -15,4 +15,8 @@ export class ProductService {
   getBestSeller():Observable<any>{
     return this.http.get(this.url+'/api/product/bestseller?limit=6');
   }
+
+  getProduct(id):Observable<any>{
+    return this.http.get(this.url+'/api/product/'+id)
+  }
 }
