@@ -34,8 +34,8 @@
   <div class="scrolling-wrapper">
     <ion-card *ngFor= "let o of Offers">
       <ion-card-header>
-        <img routerLink="/product-details" (click)="getSelectedProduct(o.offer.product)" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ5_7MuVWiQXSVNwkXwQdQ2AaAlD02oNtbYnoGcPbY0ptjAgY0G" class="card-iamge"/>
-        <ion-card-title routerLink="/product-details" (click)="getSelectedProduct(o.offer.product)">
+        <img routerLink="/product-details" (click)="getSelectedProductFromOffer(o)" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ5_7MuVWiQXSVNwkXwQdQ2AaAlD02oNtbYnoGcPbY0ptjAgY0G" class="card-iamge"/>
+        <ion-card-title routerLink="/product-details" (click)="getSelectedProductFromOffer(o)">
           {{o.offer.product.productName}}
           <ion-icon name="cart" class="cart"></ion-icon>
           <ion-text style="color: goldenrod;" class="price"> 
