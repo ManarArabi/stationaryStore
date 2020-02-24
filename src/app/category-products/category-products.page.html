@@ -5,14 +5,38 @@
 </ion-header>
 
 <ion-content>
-  <h2 style="margin: 20px;"> {{ category.name }} </h2>
-  <ion-item *ngFor="let p of Products">
-    <ion-thumbnail slot="start">
-      <img routerLink="/product-details" (click)="getSelectedProduct(p)" src="{{p.imageUrl}}">
-    </ion-thumbnail>
-    <h2 class="centering" routerLink="/product-details" (click)="getSelectedProduct(p)"> {{ p.product.productName }} </h2>
-    <p class="price" *ngIf="p.price == p.price-(p.discount/100)"> {{ p.price }}$</p>
-    <p *ngIf="p.price != p.price-(p.discount/100)" class="discount"> {{ p.price-((p.discount/100)*p.price) }}$</p>
-    <ion-icon name="cart" color="primary" class="cart"></ion-icon>
-  </ion-item>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <h2 style="margin: 15px;"> {{ category.name }} </h2>
+      </ion-col>
+    </ion-row>
+    <ion-item *ngFor="let p of Products" style="margin-bottom: 10px;">
+      <ion-row>
+        <ion-col>
+          <ion-thumbnail>
+            <img routerLink="/product-details" (click)="getSelectedProduct(p)" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ5_7MuVWiQXSVNwkXwQdQ2AaAlD02oNtbYnoGcPbY0ptjAgY0G">
+          </ion-thumbnail>
+        </ion-col>
+        <ion-col style="text-align: center;">
+          <div class="product-name">
+            <h2>
+              {{ p.product.productName }}
+            </h2>
+          </div>
+        </ion-col>
+        <div class="bottomRightPrice"> 
+          <ion-col>
+            <ion-text class="priceText" *ngIf="p.price == p.price-(p.discount/100)"> {{ p.price }}$ </ion-text>
+            <ion-text class="priceText discount" *ngIf="p.price != p.price-(p.discount/100)"> {{ p.price }}$ </ion-text>
+          </ion-col>
+        </div>
+        <div class="bottomRightCart">
+          <ion-col>
+            <ion-icon name="cart" class="cart"></ion-icon>
+          </ion-col>
+        </div>
+      </ion-row>
+    </ion-item>
+  </ion-grid>
 </ion-content>
