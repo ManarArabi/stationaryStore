@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RequestDataService } from '../services/request-data/request-data.service';
 import { CategoryService } from '../services/category/category.service';
+import { ProductService } from '../services/product/product.service';
 
 @Component({
   selector: 'app-category-products',
@@ -10,7 +11,10 @@ import { CategoryService } from '../services/category/category.service';
 export class CategoryProductsPage implements OnInit {
   category;
   Products;
-  constructor(private rds: RequestDataService, private cs: CategoryService) {
+  constructor(
+    private ps: ProductService,
+    private rds: RequestDataService, 
+    private cs: CategoryService) {
   }
 
   ngOnInit() {
@@ -30,6 +34,6 @@ export class CategoryProductsPage implements OnInit {
   }
 
   getSelectedProduct(product): void{
-    this.rds.setRequestData(product);
+    this.rds.setRequestData(this.ps.castObjToProductOnly(product));
   }
 }
