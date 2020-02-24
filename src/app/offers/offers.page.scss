@@ -6,7 +6,38 @@
     width: 25px; 
     height: 25px;
 }
+ion-thumbnail {
+    width: 100px;
+    height: 100px;
+}
 
-ion-card {
-    width: 170px;
+.product-name{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    width:130px;
+    height:100px;
+}
+
+h2{
+    margin:auto ;
+}
+
+.bottomRightCart{
+    display:flex;
+    justify-content:flex-end;
+    align-items:flex-end;
+}
+
+.bottomRightPrice{
+    display:flex;
+    justify-content:flex-end;
+    align-items:flex-end;
+    width: 55px;
+    height: 100px;
+}
+
+.priceText{
+    float:right; 
+    margin-bottom: 10;
 }

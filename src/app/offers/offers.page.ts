@@ -11,10 +11,23 @@ export class OffersPage implements OnInit {
   constructor(private os:OffersService) { }
 
   ngOnInit() {
-    this.getOffers()
+    this.getOffers();
   }
 
   getOffers():void{
-    this.os.getOffers().subscribe((Products) => {this.Offers = Products; console.log(Products)});
+    this.os.getOffers().subscribe((Products) => {
+      Products.forEach(offer => {
+        offer.price = this.calculatePrice(offer);
+      });
+      this.Offers = Products;
+    });
+  }
+
+  calculatePrice(o):any{
+    let PriceAfterDiscount = o.price - (o.offer.discount/100)*o.price;
+    if(PriceAfterDiscount<1){
+      return o.price;
+    }
+    return PriceAfterDiscount.toPrecision(3);
   }
 }

@@ -13,19 +13,32 @@
         </h2>
       </ion-col>
     </ion-row>
-    <ion-row>
-      <ion-col *ngFor="let o of Offers" size="6">
-        <ion-card>
-          <ion-card-header>
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ5_7MuVWiQXSVNwkXwQdQ2AaAlD02oNtbYnoGcPbY0ptjAgY0G"/>
-            <ion-card-title>
+    <ion-item  *ngFor="let o of Offers" style="margin: 10px;">
+      <ion-row>
+        <ion-col>
+          <ion-thumbnail>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ5_7MuVWiQXSVNwkXwQdQ2AaAlD02oNtbYnoGcPbY0ptjAgY0G">
+          </ion-thumbnail>
+        </ion-col>
+        <ion-col style="text-align: center;">
+          <div class="product-name">
+            <h2>
               {{o.offer.product.productName}}
-              <ion-icon name="cart" class="cart"></ion-icon>
-              <ion-text style="float:right; margin: 10;" color="success"> {{o.price - ((o.offer.discount/100)-o.price)}}$ </ion-text>
-            </ion-card-title>
-          </ion-card-header>
-        </ion-card>
-      </ion-col>
-    </ion-row>
-  </ion-grid>  
+            </h2>
+          </div>
+        </ion-col>
+        <div class="bottomRightPrice"> 
+          <ion-col>
+            <ion-text class="priceText"> {{o.price}}$ </ion-text>
+          </ion-col>
+        </div>
+        <div class="bottomRightCart">
+          <ion-col>
+            <ion-icon name="cart" class="cart"></ion-icon>
+          </ion-col>
+        </div>
+       
+      </ion-row>
+    </ion-item>
+  </ion-grid>
 </ion-content>
