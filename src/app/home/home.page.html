@@ -9,7 +9,9 @@
   <div class="scrolling-wrapper">
     <ion-card *ngFor= "let bs of BestSeller">
       <ion-card-header>
-        <img routerLink="/product-details" (click)="getSelectedProduct(bs)" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ5_7MuVWiQXSVNwkXwQdQ2AaAlD02oNtbYnoGcPbY0ptjAgY0G" class="card-image centering"/>
+        <div class="image-wrapper">
+          <img routerLink="/product-details" (click)="getSelectedProduct(bs)" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ5_7MuVWiQXSVNwkXwQdQ2AaAlD02oNtbYnoGcPbY0ptjAgY0G" class="card-image"/>
+        </div>
         <ion-card-title routerLink="/product-details" (click)="getSelectedProduct(bs)">
           {{bs.product.productName}}
           <ion-icon name="cart" class="cart"></ion-icon>
