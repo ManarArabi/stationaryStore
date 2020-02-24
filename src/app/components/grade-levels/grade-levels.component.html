@@ -9,7 +9,11 @@
       <ion-grid>
         <ion-row *ngFor= "let gradeLevel of GradeLevels">
           <ion-col>
-            <ion-button expand="full" color="light">{{ gradeLevel.level }}</ion-button>
+            <ion-button 
+              expand="full" 
+              color="light" 
+              (click)="getSelectedLevel(gradeLevel)"
+            >{{ gradeLevel.level }}</ion-button>
           </ion-col>
         </ion-row>
       </ion-grid>
