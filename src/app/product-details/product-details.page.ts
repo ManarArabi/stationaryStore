@@ -10,6 +10,7 @@ export class ProductDetailsPage implements OnInit {
   Product;
   constructor(private rds: RequestDataService) {
     this.getCurrentProduct();
+    console.log(this.Product)
    }
 
   ngOnInit() {

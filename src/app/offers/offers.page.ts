@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { OffersService } from '../services/offer/offers.service';
+import { RequestDataService } from '../services/request-data/request-data.service';
 
 @Component({
   selector: 'app-offers',
@@ -8,7 +9,7 @@ import { OffersService } from '../services/offer/offers.service';
 })
 export class OffersPage implements OnInit {
   Offers;
-  constructor(private os:OffersService) { }
+  constructor(private os:OffersService, private rds: RequestDataService) { }
 
   ngOnInit() {
     this.getOffers();
