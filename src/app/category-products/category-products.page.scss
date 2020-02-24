@@ -19,9 +19,15 @@ ion-thumbnail {
 .product-name{
     display:flex;
     justify-content:center;
-    align-items:center;
+    align-items:flex-end;
     width:150px;
     height:100px;
+}
+
+.product-image{
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
 .bottomRightCart{
     display:flex;
