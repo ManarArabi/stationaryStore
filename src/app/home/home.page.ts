@@ -48,6 +48,10 @@ export class HomePage implements OnInit {
     this.rds.setRequestData(product);
   }
 
+  getSelectedCategory(category):void{
+    this.rds.setRequestData(category);
+  }
+  
   async openPopover() {
     const popover = await this.popoverCtrl.create({
       component: GradeLevelsComponent,

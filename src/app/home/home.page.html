@@ -50,8 +50,8 @@
   <div class="scrolling-wrapper">
     <ion-card *ngFor= "let c of Categories">
       <ion-card-header>
-        <img src="{{c.imageUrl}}" class="card-image"/>
-        <ion-card-title>
+        <img src="{{c.imageUrl}}" (click)="getSelectedCategory(c)" routerLink="/category-products" class="card-image"/>
+        <ion-card-title (click)="getSelectedCategory(c)" routerLink="/category-products">
           {{c.name}}
         </ion-card-title>
       </ion-card-header>
