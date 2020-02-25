@@ -15,7 +15,7 @@
     background-color: #044C75;
     width: 100%; 
     height: 200px;
-    position: absolute;
+    position: fixed;
     bottom: 0%;
     color: white;
 }
@@ -23,5 +23,7 @@
 .details{
     position: relative;
     top: 10%;
+    height: 105px;
     padding: 20px;
+    overflow-y: scroll;
 }
