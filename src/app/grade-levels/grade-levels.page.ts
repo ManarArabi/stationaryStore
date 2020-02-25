@@ -27,4 +27,8 @@ export class GradeLevelsPage implements OnInit {
     this.gls.getGrades(id).subscribe(grades=> this.Grades = grades)
   }
 
+  GetSelectedGrade(grade){
+    this.rds.setRequestData(grade);
+  }
+
 }

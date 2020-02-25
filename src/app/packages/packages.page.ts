@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RequestDataService } from '../services/request-data/request-data.service';
 import { GradeLevelsService } from '../services/grade-levels/grade-levels.service';
+// import { ActivatedRoute, Router } from '@angular/router'; 
 
 @Component({
   selector: 'app-packages',
@@ -12,12 +13,17 @@ export class PackagesPage implements OnInit {
   Package;
   constructor(
     private rds: RequestDataService,
-    private gls: GradeLevelsService
-    ) { }
+    private gls: GradeLevelsService,
+    // private route: ActivatedRoute,
+    // private router: Router
+    ) { 
+      // console.log(this.route.snapshot.paramMap.get('id'))
+    }
 
   ngOnInit() {
     this.getGrade()
-    this.getPackage(this.Grade.gradeId)
+    console.log(this.Grade)
+    // this.getPackage(this.Grade.gradeId)
   }
 
   getGrade(){
