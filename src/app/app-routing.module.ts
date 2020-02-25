@@ -30,6 +30,10 @@ const routes: Routes = [
   {
     path: 'grade-levels',
     loadChildren: () => import('./grade-levels/grade-levels.module').then( m => m.GradeLevelsPageModule)
+  },
+  {
+    path: 'search-res',
+    loadChildren: () => import('./search-res/search-res.module').then( m => m.SearchResPageModule)
   }
 ];
 
