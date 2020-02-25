@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ComponentsModule } from './components/components.module';
 import { HeaderComponent } from './components/header/header.component';
 import { GradeLevelsComponent } from './components/grade-levels/grade-levels.component';
+import { LightHeaderComponent } from './components/light-header/light-header.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { GradeLevelsComponent } from './components/grade-levels/grade-levels.com
   ],
   entryComponents: [
     HeaderComponent,
-    GradeLevelsComponent
+    GradeLevelsComponent,
+    LightHeaderComponent
   ],
   imports: [
     BrowserModule,
