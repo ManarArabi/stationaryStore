@@ -1,0 +1,51 @@
+h2{
+    margin: 20px;
+}
+
+ion-thumbnail {
+    width: 100px;
+    height: 100px;
+}
+
+.category-name{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    width: 220px;
+    height: 100px;
+}
+
+.product-name{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100px;
+    width: 140px;
+}
+
+.bottomRightCart{
+    display:flex;
+    justify-content:flex-end;
+    align-items:flex-end;
+}
+
+.bottomRightPrice{
+    display:flex;
+    justify-content:flex-end;
+    align-items:flex-end;
+    width: 55px;
+    height: 100px;
+}
+
+.priceText{
+    float:right; 
+    margin-bottom: 10;
+}
+
+.cart{
+    float:right; 
+    padding-left: 10px; 
+    padding-bottom: 10px;
+    width: 25px; 
+    height: 25px;
+}

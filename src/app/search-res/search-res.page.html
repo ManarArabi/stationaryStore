@@ -1,9 +1,76 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>search-res</ion-title>
+    <app-header></app-header>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-grid>
+    <div *ngIf="hasCategories()">
+      <ion-row>
+        <ion-col>
+          <h2>Categories</h2>
+        </ion-col>
+      </ion-row>
+      <ion-item  *ngFor="let c of Categories" style="margin-bottom: 10px;">
+        <ion-row>
+          <ion-col>
+            <ion-thumbnail>
+              <img 
+                src="{{ c.imageUrl }}"
+                (click) = "getSelectedCategory(c)"
+                routerLink="/category-products"
+              >
+            </ion-thumbnail>
+          </ion-col>
+          <ion-col>
+            <div class="category-name">
+              <h2>
+                {{c.name}}
+              </h2>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-item>
+    </div>
+    <div *ngIf="hasProducts()">
+      <ion-row>
+        <ion-col>
+          <h2>Products</h2>
+        </ion-col>
+      </ion-row>
+      <ion-item  *ngFor="let p of Products" style="margin-bottom: 10px;">
+        <ion-row>
+          <ion-col>
+            <ion-thumbnail>
+              <img 
+                src="{{ p.product.imageUrl[0].imageUrl }}"
+                (click)='getSelectedProduct(p)'
+                routerLink='/product-details'
+              >
+            </ion-thumbnail>
+          </ion-col>
+          <ion-col>
+            <div class="product-name">
+              <h2>
+                {{p.product.productName}}
+              </h2>
+            </div>
+          </ion-col>
+          <div class="bottomRightPrice"> 
+            <ion-col>
+              <ion-text class="priceText" *ngIf="p.price == p.price-(p.discount/100)"> {{ p.price }}$ </ion-text>
+              <ion-text class="priceText" *ngIf="p.price != p.price-(p.discount/100)" style="color: goldenrod;"> {{ p.price }}$ </ion-text>
+            </ion-col>
+          </div>
+          <div class="bottomRightCart">
+            <ion-col>
+              <ion-icon name="cart" class="cart"></ion-icon>
+            </ion-col>
+          </div>
+        </ion-row>
+      </ion-item>
+    </div>
+    
+  </ion-grid>
 </ion-content>
