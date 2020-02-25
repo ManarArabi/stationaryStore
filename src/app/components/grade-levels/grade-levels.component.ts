@@ -33,7 +33,7 @@ export class GradeLevelsComponent implements OnInit {
   }
 
   navigateToPackagePage(){
-    this.router.navigateByUrl('/packages');
+    this.router.navigateByUrl('/grade-levels');
   }
 
 }

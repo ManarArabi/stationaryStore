@@ -8,8 +8,7 @@ import { GradeLevelsService } from '../services/grade-levels/grade-levels.servic
   styleUrls: ['./packages.page.scss'],
 })
 export class PackagesPage implements OnInit {
-  Level;
-  Grades;
+  Grade
   Package;
   constructor(
     private rds: RequestDataService,
@@ -17,17 +16,12 @@ export class PackagesPage implements OnInit {
     ) { }
 
   ngOnInit() {
-    this.getLevel()
-    this.getGrades(this.Level.id)
-    this.getPackage(1)
+    this.getGrade()
+    this.getPackage(this.Grade.gradeId)
   }
 
-  getLevel(){
-    this.Level = this.rds.getRequestData()
-  }
-
-  getGrades(id){
-    this.gls.getGrades(id).subscribe(grades=> this.Grades = grades)
+  getGrade(){
+    this.Grade = this.rds.getRequestData();
   }
 
   getPackage(id){
