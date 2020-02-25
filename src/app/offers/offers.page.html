@@ -20,7 +20,7 @@
             <img 
               routerLink="/product-details" 
               (click)="getSelectedProduct(o)" 
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ5_7MuVWiQXSVNwkXwQdQ2AaAlD02oNtbYnoGcPbY0ptjAgY0G"
+              src="{{ o.offer.product.imageUrl[0].imageUrl }}"
             >
           </ion-thumbnail>
         </ion-col>

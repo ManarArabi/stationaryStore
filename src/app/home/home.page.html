@@ -10,7 +10,7 @@
     <ion-card *ngFor= "let bs of BestSeller">
       <ion-card-header>
         <div class="image-wrapper">
-          <img routerLink="/product-details" (click)="getSelectedProduct(bs)" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ5_7MuVWiQXSVNwkXwQdQ2AaAlD02oNtbYnoGcPbY0ptjAgY0G" class="card-image"/>
+          <img routerLink="/product-details" (click)="getSelectedProduct(bs)" src="{{bs.product.imageUrl[0].imageUrl}}" class="card-image"/>
         </div>
         <ion-card-title routerLink="/product-details" (click)="getSelectedProduct(bs)">
           {{bs.product.productName}}
@@ -34,7 +34,9 @@
   <div class="scrolling-wrapper">
     <ion-card *ngFor= "let o of Offers">
       <ion-card-header>
-        <img routerLink="/product-details" (click)="getSelectedProductFromOffer(o)" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ5_7MuVWiQXSVNwkXwQdQ2AaAlD02oNtbYnoGcPbY0ptjAgY0G" class="card-iamge"/>
+        <div class="image-wrapper">
+        <img routerLink="/product-details" (click)="getSelectedProductFromOffer(o)" src="{{o.offer.product.imageUrl[0].imageUrl}}" class="card-image"/>
+        </div>
         <ion-card-title routerLink="/product-details" (click)="getSelectedProductFromOffer(o)">
           {{o.offer.product.productName}}
           <ion-icon name="cart" class="cart"></ion-icon>
