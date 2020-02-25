@@ -50,7 +50,7 @@ export class ProductService {
     this.SelectedProduct.imageUrl = obj.product.imageUrl;
     this.SelectedProduct.discount = obj.discount;
     this.SelectedProduct.price = obj.price;
-    this.SelectedProduct.price = this.calculatePrice(obj);
+    // this.SelectedProduct.price = this.calculatePrice(obj);
     console.log(this.SelectedProduct)
     return this.SelectedProduct
   }
