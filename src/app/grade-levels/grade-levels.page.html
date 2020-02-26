@@ -4,12 +4,14 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <div style="display:flex;justify-content:center;align-items:center;width:200px;height:200px;">
-  
+  <div style="display:flex;justify-content:center;align-items:center;width:100%;height:90%;">
+    <ion-label *ngIf="SelectedGrade == null" class="alerting-message">
+      Please<br /> select <br /> a grade
+    </ion-label>
+    <h2> {{SelectedGrade}} </h2>
   </div>
-  <h2> {{SelectedGrade}} </h2>
   <ion-segment scrollable class="footer">
-    <ion-segment-button *ngFor="let g of Grades" (click)="GetSelectedGrade(g.gradeId)">
+    <ion-segment-button *ngFor="let g of Grades" (click)="GetSelectedGrade(g)">
       <ion-label>{{ g.grade }}</ion-label>
     </ion-segment-button>
   </ion-segment>
