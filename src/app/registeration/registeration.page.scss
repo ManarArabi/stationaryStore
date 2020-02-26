@@ -1,0 +1,15 @@
+.main-icon{
+    width: 80px; 
+    height: 80px
+}
+
+.content-wrapper{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.scrollable{
+    overflow-y: scroll;
+    height: 500px;
+}

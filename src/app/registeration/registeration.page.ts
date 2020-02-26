@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./registeration.page.scss'],
 })
 export class RegisterationPage implements OnInit {
-
+  FirstName: string;
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onSubmit(){
+    console.log(this.FirstName)
   }
 
 }

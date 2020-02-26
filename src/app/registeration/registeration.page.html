@@ -1,9 +1,53 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>registeration</ion-title>
-  </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <div class="content-wrapper">
+      <ion-icon src="../../assets/main-blue.svg" class="main-icon" style="margin-top: 20px"></ion-icon>
+  </div>
+  
+    <form onsubmit="onSubmit(event)">
+      <div class="content-wrapper scrollable">
+      <ion-list lines="full" class="ion-no-margin ion-no-padding">
+        <ion-item>
+          <ion-label position="floating">First Name <ion-text color="danger">*</ion-text></ion-label>
+          <ion-input required type="text" name="FirstName"></ion-input>
+        </ion-item>
 
+        <ion-item>
+          <ion-label position="floating">Last Name <ion-text color="danger">*</ion-text></ion-label>
+          <ion-input required type="text" name="LastName"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" type="email">Email <ion-text color="danger">*</ion-text></ion-label>
+          <ion-input required></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" type="password">Password <ion-text color="danger">*</ion-text></ion-label>
+          <ion-input required></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating" type="number">Phone number</ion-label>
+          <ion-input></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Address</ion-label>
+          <ion-input placeholder="Street details"></ion-input>
+          <ion-input placeholder="Building"></ion-input>
+          <ion-input placeholder="Apartment"></ion-input>
+          <ion-input placeholder="City"></ion-input>
+          <ion-input placeholder="State"></ion-input>
+          <ion-input placeholder="Special Marque"></ion-input>
+        </ion-item>
+      </ion-list>
+    </div>
+      <div class="ion-padding content-wrapper">
+        <ion-button expand="block" type="submit" class="ion-no-margin">Create account</ion-button>
+      </div>
+    </form>
+  
 </ion-content>
