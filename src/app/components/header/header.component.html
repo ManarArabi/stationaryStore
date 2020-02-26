@@ -3,6 +3,6 @@
     <ion-menu-button></ion-menu-button>
   </ion-buttons>
   <ion-searchbar (search)="search($event.target.value)"></ion-searchbar>
-  <ion-icon class= "header" name="person-add" slot="end"></ion-icon>
+  <ion-icon class= "header" name="person-add" slot="end" (click)="navigateToRegister()"></ion-icon>
   <!-- <ion-icon class= "header icon " src="../../assets/mainIcon.svg"></ion-icon> -->
 </ion-toolbar>

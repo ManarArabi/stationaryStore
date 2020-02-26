@@ -29,4 +29,8 @@ export class HeaderComponent implements OnInit {
     this.rds.setRequestData(res)
   }
 
+  navigateToRegister(){
+    this.router.navigateByUrl('/registeration')
+  }
+
 }
