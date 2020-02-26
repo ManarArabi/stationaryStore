@@ -9,6 +9,7 @@ import { GradeLevelsService } from '../services/grade-levels/grade-levels.servic
 export class GradeLevelsPage implements OnInit {
   Level;
   Grades;
+  SelectedGrade = 3 ;
   constructor(
     private rds: RequestDataService,
     private gls: GradeLevelsService
@@ -28,7 +29,7 @@ export class GradeLevelsPage implements OnInit {
   }
 
   GetSelectedGrade(grade){
-    this.rds.setRequestData(grade);
+    this.SelectedGrade = grade;
   }
 
 }

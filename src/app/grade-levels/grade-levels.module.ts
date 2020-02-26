@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { GradeLevelsPageRoutingModule } from './grade-levels-routing.module';
 
 import { GradeLevelsPage } from './grade-levels.page';
+import { ComponentsModule } from './../components/components.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    GradeLevelsPageRoutingModule
+    GradeLevelsPageRoutingModule,
+    ComponentsModule
   ],
   declarations: [GradeLevelsPage]
 })

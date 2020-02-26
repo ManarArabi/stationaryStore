@@ -1,9 +1,16 @@
-<ion-tabs>
-
-  <ion-tab-bar slot="bottom">
-    <ion-tab-button tab="packages" *ngFor="let g of Grades" (click)="GetSelectedGrade(g)">
-      <ion-label style="font-weight: bold; font-size: medium;">{{ g.grade }}</ion-label>
-    </ion-tab-button>
-  </ion-tab-bar>
-
-</ion-tabs>
+<ion-header>
+  <ion-toolbar color= "light">
+    <app-light-header></app-light-header>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div style="display:flex;justify-content:center;align-items:center;width:200px;height:200px;">
+  
+  </div>
+  <h2> {{SelectedGrade}} </h2>
+  <ion-segment scrollable class="footer">
+    <ion-segment-button *ngFor="let g of Grades" (click)="GetSelectedGrade(g.gradeId)">
+      <ion-label>{{ g.grade }}</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+</ion-content>
