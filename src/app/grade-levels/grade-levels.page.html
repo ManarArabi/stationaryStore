@@ -8,7 +8,25 @@
     <ion-label *ngIf="SelectedGrade == null" class="alerting-message">
       Please<br /> select <br /> a grade
     </ion-label>
-    <h2> {{SelectedGrade}} </h2>
+    <div *ngIf="SelectedGrade != null">
+      <div *ngFor="let p of Products" class="content">
+        <ion-label color="medium">
+          {{ p.classifiedProduct.quantity }}
+        </ion-label>
+        <ion-label style="margin-left: 5px;">
+          {{ p.classifiedProduct.product.productName }}
+        </ion-label>
+      </div>
+      <div class="bottom-left"> Total price: {{ TotalPrice }}$</div>
+      <div class="fab-container">
+        <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+          <ion-fab-button>
+            <ion-icon name="cart"></ion-icon>
+          </ion-fab-button>
+        </ion-fab>
+      </div>
+      
+    </div>
   </div>
   <ion-segment scrollable class="footer">
     <ion-segment-button *ngFor="let g of Grades" (click)="GetSelectedGrade(g)">
