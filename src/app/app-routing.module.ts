@@ -34,6 +34,10 @@ const routes: Routes = [
   {
     path: 'search-res',
     loadChildren: () => import('./search-res/search-res.module').then( m => m.SearchResPageModule)
+  },
+  {
+    path: 'registeration',
+    loadChildren: () => import('./registeration/registeration.module').then( m => m.RegisterationPageModule)
   }
 ];
 
