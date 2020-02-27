@@ -8,11 +8,15 @@ import { HttpClient } from '@angular/common/http';
 export class CategoryService {
   url = 'http://192.168.1.125:8081/stationery_store_api_war'
   constructor(private http: HttpClient) { }
-  getCategories():Observable<any>{
-    return this.http.get(this.url+'/api/category?limit=6');
+  getCategories(pageNo = 1, pageSize = 6):Observable<any>{
+    return this.http.get(this.url+'/api/category?limit='+pageSize+'&pageNumber='+pageNo);
   }
 
   getCategoryProducts(id):Observable<any>{
     return this.http.get(this.url+'/api/category/'+id+'/products')
+  }
+
+  getTotalNumberOfCategories():Observable<any>{
+    return this.http.get(this.url+'/api/category/count')
   }
 }

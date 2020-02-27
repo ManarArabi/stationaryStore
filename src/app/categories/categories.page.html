@@ -6,7 +6,7 @@
 
 <ion-content>
   <h2 style="margin: 20px; position: sticky;">Categories</h2>
-  <ion-item *ngFor= "let c of Categories">
+  <ion-item *ngFor= "let c of CategoriesData">
     <ion-thumbnail slot="start" (click)="getSelectedCategory(c)" routerLink="/category-products" routerDirection="forward">
       <img src="{{c.imageUrl}}">
     </ion-thumbnail>
