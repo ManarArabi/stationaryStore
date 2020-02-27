@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators, FormControl} from '@angular/forms';
 import { User } from '../types/UserPayLoad';
 import { UserService } from '../services/user/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registeration',
@@ -48,7 +49,8 @@ export class RegisterationPage implements OnInit {
     };
   constructor(
     public formBuilder: FormBuilder,
-    public us: UserService
+    public us: UserService,
+    private router: Router
     ) { 
 
     this.RegisterForm = formBuilder.group({
@@ -88,7 +90,9 @@ export class RegisterationPage implements OnInit {
     this.User.addresses[0].city = this.RegisterForm.value.city
     this.User.addresses[0].state = this.RegisterForm.value.state
     this.User.addresses[0].specialMarque = this.RegisterForm.value.specialMarque
+    console.log(this.User);
     // this.us.register(this.User); //waiting for api
+    this.router.navigateByUrl('/home');
   }
 
 }
