@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SearchService } from '../../services/search/search.service';
 import { RequestDataService } from '../../services/request-data/request-data.service';
-import { Router } from '@angular/router';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-header',
@@ -13,7 +13,7 @@ export class HeaderComponent implements OnInit {
   constructor(
     private ss: SearchService, 
     private rds: RequestDataService,
-    private router: Router
+    private navController: NavController
     ) { }
 
   ngOnInit() {}
@@ -21,7 +21,7 @@ export class HeaderComponent implements OnInit {
   search(keyWord){
     this.ss.search(keyWord).subscribe( (res) => {
       this.getSearchResults(res)
-      this.router.navigateByUrl('/search-res')
+      this.navController.navigateForward('/search-res')
     })
   }
 
@@ -30,7 +30,7 @@ export class HeaderComponent implements OnInit {
   }
 
   navigateToRegister(){
-    this.router.navigateByUrl('/registeration')
+    this.navController.navigateForward('/registeration')
   }
 
 }

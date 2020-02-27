@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-light-header',
@@ -8,11 +8,11 @@ import { Router } from '@angular/router';
 })
 export class LightHeaderComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private navController: NavController) { }
 
   ngOnInit() {}
 
   navigateToRegister(){
-    this.router.navigateByUrl('/registeration')
+    this.navController.navigateForward('/registeration')
   }
 }
