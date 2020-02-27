@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators, FormControl} from '@angular/forms';
+import { User } from '../types/UserPayLoad';
+import { UserService } from '../services/user/user.service';
 
 @Component({
   selector: 'app-registeration',
@@ -8,6 +10,25 @@ import {FormBuilder, FormGroup, Validators, FormControl} from '@angular/forms';
 })
 export class RegisterationPage implements OnInit {
   public RegisterForm: FormGroup;
+  User: User = {
+    firstName: '',
+    lastName: '',
+    email: '',
+    password:'',
+    phoneNumber: '',
+    phoneNumber2: '',
+    type: '',
+    addresses: [
+      {
+        apartment: 0,
+        building: 0,
+        city:'',
+        state: '',
+        specialMarque: '',
+        streetDetails: ''
+      }
+    ]
+  };
   validation_messages = {
     'firstName': [
         { type: 'required', message: 'First name is required.' }
@@ -25,7 +46,10 @@ export class RegisterationPage implements OnInit {
         { type: 'pattern', message: 'upperCase, lowercase and numbers.'}
       ]
     };
-  constructor(public formBuilder: FormBuilder) { 
+  constructor(
+    public formBuilder: FormBuilder,
+    public us: UserService
+    ) { 
 
     this.RegisterForm = formBuilder.group({
       firstName: new FormControl('', Validators.required),
@@ -54,7 +78,17 @@ export class RegisterationPage implements OnInit {
   }
 
   register(){
-    console.log(this.RegisterForm.value)
+    this.User.firstName = this.RegisterForm.value.firstName
+    this.User.lastName = this.RegisterForm.value.lastName
+    this.User.email = this.RegisterForm.value.email
+    this.User.password = this.RegisterForm.value.password
+    this.User.addresses[0].streetDetails = this.RegisterForm.value.streetDetails
+    this.User.addresses[0].building = this.RegisterForm.value.building
+    this.User.addresses[0].apartment = this.RegisterForm.value.apartment
+    this.User.addresses[0].city = this.RegisterForm.value.city
+    this.User.addresses[0].state = this.RegisterForm.value.state
+    this.User.addresses[0].specialMarque = this.RegisterForm.value.specialMarque
+    // this.us.register(this.User); //waiting for api
   }
 
 }

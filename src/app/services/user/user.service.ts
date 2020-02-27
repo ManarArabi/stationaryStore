@@ -1,18 +1,20 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { throwError } from 'rxjs';
+import { User } from '../../types/UserPayLoad';
+import { CurrentUser } from '../../types/User';
+import { retry, catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  userToken;
+  url = 'http://192.168.1.125:8081/stationery_store_api_war';
   constructor(private http: HttpClient) { }
 
   httpOptions = {
     headers: new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': this.userToken
+      'Content-Type': 'application/json'
     })
   }
 
@@ -31,4 +33,12 @@ export class UserService {
     return throwError('Something bad happened; please try again later.');
   };
 
+  register(User: User){
+    return this.http
+      .post<CurrentUser>(this.url, JSON.stringify(User), this.httpOptions)
+      .pipe(
+        retry(2),
+        catchError(this.handleError)
+      )
+  }
 }
