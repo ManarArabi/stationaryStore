@@ -3,50 +3,83 @@
 
 <ion-content>
   <div class="content-wrapper">
-      <ion-icon src="../../assets/main-blue.svg" class="main-icon" style="margin-top: 20px"></ion-icon>
+      <ion-icon src="../../assets/main-blue.svg" class="main-icon" style="margin-top: 15px"></ion-icon>
   </div>
   
-    <form onsubmit="onSubmit(event)">
-      <div class="content-wrapper scrollable">
-      <ion-list lines="full" class="ion-no-margin ion-no-padding">
-        <ion-item>
-          <ion-label position="floating">First Name <ion-text color="danger">*</ion-text></ion-label>
-          <ion-input required type="text" name="FirstName"></ion-input>
-        </ion-item>
+    <form [formGroup]="RegisterForm">
+      <div class="content-wrapper" style="margin-top: 5px;">
+        <div style="width: 300px;">
+          <ion-list lines="full" class="ion-no-margin ion-no-padding">
+            <ion-item>
+              <ion-label position="floating">First Name <ion-text color="danger">*</ion-text></ion-label>
+              <ion-input required formControlName="firstName" type="text"></ion-input>
+            </ion-item>
+            <div class="validation-errors">
+              <ng-container *ngFor="let validation of validation_messages.firstName">
+                <div class="error-message" *ngIf="RegisterForm.get('firstName').hasError(validation.type) && (RegisterForm.get('firstName').dirty || RegisterForm.get('firstName').touched)">
+                  {{ validation.message }}
+                </div>
+              </ng-container>
+            </div>
 
-        <ion-item>
-          <ion-label position="floating">Last Name <ion-text color="danger">*</ion-text></ion-label>
-          <ion-input required type="text" name="LastName"></ion-input>
-        </ion-item>
+            <ion-item>
+              <ion-label position="floating">Last Name <ion-text color="danger">*</ion-text></ion-label>
+              <ion-input required formControlName="lastName" type="text"></ion-input>
+            </ion-item>
 
-        <ion-item>
-          <ion-label position="floating" type="email">Email <ion-text color="danger">*</ion-text></ion-label>
-          <ion-input required></ion-input>
-        </ion-item>
+            <div class="validation-errors">
+              <ng-container *ngFor="let validation of validation_messages.lastName">
+                <div class="error-message" *ngIf="RegisterForm.get('lastName').hasError(validation.type) && (RegisterForm.get('lastName').dirty || RegisterForm.get('lastName').touched)">
+                  {{ validation.message }}
+                </div>
+              </ng-container>
+            </div>
 
-        <ion-item>
-          <ion-label position="floating" type="password">Password <ion-text color="danger">*</ion-text></ion-label>
-          <ion-input required></ion-input>
-        </ion-item>
+            <ion-item>
+              <ion-label position="floating">Email <ion-text color="danger">*</ion-text></ion-label>
+              <ion-input required formControlName="email" type="email"></ion-input>
+            </ion-item>
 
-        <ion-item>
-          <ion-label position="floating" type="number">Phone number</ion-label>
-          <ion-input></ion-input>
-        </ion-item>
+            <div class="validation-errors">
+              <ng-container *ngFor="let validation of validation_messages.email">
+                <div class="error-message" *ngIf="RegisterForm.get('email').hasError(validation.type) && (RegisterForm.get('email').dirty || RegisterForm.get('email').touched)">
+                  {{ validation.message }}
+                </div>
+              </ng-container>
+            </div>
 
-        <ion-item>
-          <ion-label position="stacked">Address</ion-label>
-          <ion-input placeholder="Street details"></ion-input>
-          <ion-input placeholder="Building"></ion-input>
-          <ion-input placeholder="Apartment"></ion-input>
-          <ion-input placeholder="City"></ion-input>
-          <ion-input placeholder="State"></ion-input>
-          <ion-input placeholder="Special Marque"></ion-input>
-        </ion-item>
-      </ion-list>
-    </div>
+            <ion-item>
+              <ion-label position="floating">Password <ion-text color="danger">*</ion-text></ion-label>
+              <ion-input required formControlName="password" type="password"></ion-input>
+            </ion-item>
+
+            <div class="validation-errors">
+              <ng-container *ngFor="let validation of validation_messages.password">
+                <div class="error-message" *ngIf="RegisterForm.get('password').hasError(validation.type) && (RegisterForm.get('password').dirty || RegisterForm.get('password').touched)">
+                  {{ validation.message }}
+                </div>
+              </ng-container>
+            </div>
+
+            <ion-item>
+              <ion-label position="floating">Phone number</ion-label>
+              <ion-input formControlName="phoneNumber" type="number"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="stacked">Address</ion-label>
+              <ion-input placeholder="Street details" formControlName="streetDetails"></ion-input>
+              <ion-input placeholder="Building" formControlName="building"></ion-input>
+              <ion-input placeholder="Apartment" formControlName="apartment"></ion-input>
+              <ion-input placeholder="City" formControlName="city"></ion-input>
+              <ion-input placeholder="State" formControlName="state"></ion-input>
+              <ion-input placeholder="Special Marque" formControlName="specialMarque"></ion-input>
+            </ion-item>
+          </ion-list>
+        </div>
+      </div>
       <div class="ion-padding content-wrapper">
-        <ion-button expand="block" type="submit" class="ion-no-margin">Create account</ion-button>
+        <ion-button expand="block" type="submit" class="ion-no-margin" (click)="register()">Create account</ion-button>
       </div>
     </form>
   
