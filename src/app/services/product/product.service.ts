@@ -7,7 +7,7 @@ import { Product } from '../../types/Product';
   providedIn: 'root'
 })
 export class ProductService {
-  url = 'http://192.168.1.125:8081/stationery_store_api_war';
+  url = 'http://192.168.1.2:8081/stationery_store_api_war';
   SelectedProduct: Product = {
     id: 0,
     name: "",

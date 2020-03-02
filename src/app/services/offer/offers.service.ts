@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class OffersService {
-  url = 'http://192.168.1.125:8081/stationery_store_api_war'
+  url = 'http://192.168.1.2:8081/stationery_store_api_war'
   constructor(private http: HttpClient) { }
 
   getOffers():Observable<any>{

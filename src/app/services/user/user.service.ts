@@ -9,7 +9,7 @@ import { retry, catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class UserService {
-  url = 'http://192.168.1.125:8081/stationery_store_api_war';
+  url = 'http://192.168.1.2:8081/stationery_store_api_war';
   constructor(private http: HttpClient) { }
 
   httpOptions = {
@@ -42,3 +42,4 @@ export class UserService {
       )
   }
 }
+
