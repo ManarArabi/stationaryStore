@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { CategoryService } from '../services/category/category.service';
 import { RequestDataService } from '../services/request-data/request-data.service';
+import { IonInfiniteScroll } from '@ionic/angular';
 
 @Component({
   selector: 'app-categories',
@@ -8,19 +9,22 @@ import { RequestDataService } from '../services/request-data/request-data.servic
   styleUrls: ['./categories.page.scss'],
 })
 export class CategoriesPage implements OnInit {
-  CategoriesData;
-  NumberOfCategories;
+  @ViewChild(IonInfiniteScroll, { static: false }) infiniteScroll: IonInfiniteScroll;
 
+  CategoriesData = new Array();
+  NumberOfCategories;
+  PageNo = 1;
+  PageSize = 8;
   constructor(private cs: CategoryService, private rds: RequestDataService) { 
     this.getNumberOfCategories();
-    this.getCategories();
+    this.getCategories(this.PageNo, this.PageSize);
   }
 
   ngOnInit() {
   }
 
   getCategories(pageNo = 1, pageSize = 6):void{
-    this.cs.getCategories(pageNo, pageSize).subscribe(categories => this.CategoriesData = categories);
+    this.cs.getCategories(pageNo, pageSize).subscribe(categories => this.CategoriesData= this.CategoriesData.concat(categories));
   }
 
   getSelectedCategory(category):void{
@@ -29,5 +33,17 @@ export class CategoriesPage implements OnInit {
 
   getNumberOfCategories():void{
     this.cs.getTotalNumberOfCategories().subscribe(data => this.NumberOfCategories = data.count);
+  }
+
+  loadData(event) {
+    setTimeout(() => {
+      this.PageNo += 1;
+      this.getCategories(this.PageNo, this.PageSize)
+      console.log('Done');
+      event.target.complete();
+      if (this.CategoriesData.length == 100) {
+        event.target.disabled = true;
+      }
+    }, 500);
   }
 }
