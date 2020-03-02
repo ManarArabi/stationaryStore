@@ -12,11 +12,9 @@ export class CategoriesPage implements OnInit {
   @ViewChild(IonInfiniteScroll, { static: false }) infiniteScroll: IonInfiniteScroll;
 
   CategoriesData = new Array();
-  NumberOfCategories;
   PageNo = 1;
   PageSize = 8;
   constructor(private cs: CategoryService, private rds: RequestDataService) { 
-    this.getNumberOfCategories();
     this.getCategories(this.PageNo, this.PageSize);
   }
 
@@ -29,10 +27,6 @@ export class CategoriesPage implements OnInit {
 
   getSelectedCategory(category):void{
     this.rds.setRequestData(category);
-  }
-
-  getNumberOfCategories():void{
-    this.cs.getTotalNumberOfCategories().subscribe(data => this.NumberOfCategories = data.count);
   }
 
   loadData(event) {

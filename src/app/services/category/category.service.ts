@@ -15,8 +15,5 @@ export class CategoryService {
   getCategoryProducts(id):Observable<any>{
     return this.http.get(this.url+'/api/category/'+id+'/products')
   }
-
-  getTotalNumberOfCategories():Observable<any>{
-    return this.http.get(this.url+'/api/category/count')
-  }
+  
 }
