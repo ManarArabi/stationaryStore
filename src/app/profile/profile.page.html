@@ -1,9 +1,83 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>profile</ion-title>
+  <ion-toolbar color="primary">
+    <ion-icon name="arrow-back" slot="start" routerLink="/home" routerDirection="backward" class="back-icon"> </ion-icon>
+    <ion-title>Profile</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <form [formGroup]="ProfileForm">
+    <div class="content-wrapper" style="margin-top: 5px;">
+      <div style="width: 300px;">
+        <ion-list lines="full" class="ion-no-margin ion-no-padding">
+          <ion-item>
+            <ion-label position="fixed" class="attribute">First Name</ion-label>
+            <ion-input required formControlName="firstName" type="text" class="value"> {{ User.firstName }}</ion-input>
+          </ion-item>
 
+          <ion-item>
+            <ion-label position="fixed"  class="attribute">Last Name </ion-label>
+            <ion-input required formControlName="lastName" type="text"  class="value"> {{ User.lastName }}</ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="fixed"  class="attribute">Email</ion-label>
+            <ion-input required formControlName="email" type="email" class="value"> {{ User.email }} </ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="fixed"  class="attribute">Password</ion-label>
+            <ion-input required formControlName="password" type="password" class="value"> {{ User.password }}</ion-input>
+          </ion-item>
+
+
+          <ion-item>
+            <ion-label position="fixed"  class="attribute">Phone number</ion-label>
+            <ion-input formControlName="phoneNumber" type="number" class="value"> {{ User.phoneNumber }}</ion-input>
+          </ion-item>
+
+          <ion-item *ngIf="User.phoneNumber2 != 0">
+            <ion-label position="fixed" class="attribute">Phone number 2</ion-label>
+            <ion-input formControlName="phoneNumber2" type="number"> {{ User.phoneNumber2 }}</ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-list>
+              <ion-label position="fixed" class="attribute">Addresses</ion-label>
+              <div class="addresses">
+                <ion-item>
+                <ion-label position="fixed" class="attribute">Street details</ion-label>
+                <ion-input formControlName="streetDetails" class="value"> {{ User.addresses[0].streetDetails }}</ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="fixed" class="attribute">Building</ion-label>
+                <ion-input formControlName="building" class="value"> {{ User.addresses[0].building }} </ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="fixed" class="attribute">Apartment</ion-label>
+                <ion-input formControlName="apartment" class="value"> {{ User.addresses[0].apartment }} </ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="fixed" class="attribute">City</ion-label>
+                <ion-input formControlName="city" class="value">{{ User.addresses[0].city }}</ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="fixed" class="attribute">State</ion-label>
+                <ion-input formControlName="state" class="value">{{ User.addresses[0].state }}</ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="fixed" class="attribute">Special Marque</ion-label>
+                <ion-input formControlName="specialMarque" class="value">{{ User.addresses[0].specialMarque }}</ion-input>
+              </ion-item>
+              <ion-label class="attribute" style="margin: 10px"> Add another address</ion-label>
+              </div>
+            </ion-list>
+          </ion-item>
+        </ion-list>
+      </div>
+    </div>
+    <div class="ion-padding content-wrapper">
+      <ion-button expand="block" type="submit" class="ion-no-margin" (click)="register()" style="width: 300px;">Save</ion-button>
+    </div>
+  </form>
 </ion-content>
