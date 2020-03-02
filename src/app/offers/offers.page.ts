@@ -9,7 +9,9 @@ import { ProductService } from '../services/product/product.service';
   styleUrls: ['./offers.page.scss'],
 })
 export class OffersPage implements OnInit {
-  Offers;
+  Offers = new Array();
+  PageNo = 1;
+  PageSize = 6;
   constructor(
     private os:OffersService, 
     private rds: RequestDataService,
@@ -17,19 +19,31 @@ export class OffersPage implements OnInit {
     ) { }
 
   ngOnInit() {
-    this.getOffers();
+    this.getOffers(this.PageNo, this.PageSize);
   }
 
-  getOffers():void{
-    this.os.getOffers().subscribe((Products) => {
+  getOffers(pageNo = 1, pageSize = 6):void{
+    this.os.getOffers(pageNo, pageSize).subscribe((Products) => {
       Products.forEach(offer => {
         offer.price = this.ps.calculatePrice(offer);
       });
-      this.Offers = Products;
+      this.Offers = this.Offers.concat(Products);
     });
   }
 
   getSelectedProduct(obj):void{
     this.rds.setRequestData(this.ps.castOfferToProduct(obj));
+  }
+
+  loadData(event) {
+    setTimeout(() => {
+      this.PageNo += 1;
+      this.getOffers(this.PageNo, this.PageSize)
+      console.log('Done');
+      event.target.complete();
+      if (this.Offers.length == 200) {
+        event.target.disabled = true;
+      }
+    }, 500);
   }
 }

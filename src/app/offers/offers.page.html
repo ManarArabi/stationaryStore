@@ -45,4 +45,9 @@
       </ion-row>
     </ion-item>
   </ion-grid>
+  <ion-infinite-scroll threshold="20%" (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content
+      loadingSpinner="circular">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 </ion-content>
