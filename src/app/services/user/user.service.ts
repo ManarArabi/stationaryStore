@@ -4,6 +4,7 @@ import { throwError } from 'rxjs';
 import { User } from '../../types/UserPayLoad';
 import { CurrentUser } from '../../types/User';
 import { retry, catchError } from 'rxjs/operators';
+import { UserCredentail } from '../../types/UserCredential';
 
 @Injectable({
   providedIn: 'root'
@@ -34,6 +35,15 @@ export class UserService {
   };
 
   register(User: User){
+    return this.http
+      .post<CurrentUser>(this.url, JSON.stringify(User), this.httpOptions)
+      .pipe(
+        retry(2),
+        catchError(this.handleError)
+      )
+  }
+
+  login(User: UserCredentail){
     return this.http
       .post<CurrentUser>(this.url, JSON.stringify(User), this.httpOptions)
       .pipe(
