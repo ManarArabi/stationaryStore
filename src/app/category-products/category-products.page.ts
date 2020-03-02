@@ -10,7 +10,9 @@ import { ProductService } from '../services/product/product.service';
 })
 export class CategoryProductsPage implements OnInit {
   category;
-  Products;
+  Products = new Array();
+  PageNo = 1;
+  PageSize = 6;
   constructor(
     private ps: ProductService,
     private rds: RequestDataService, 
@@ -19,13 +21,12 @@ export class CategoryProductsPage implements OnInit {
 
   ngOnInit() {
     this.getCategory()
-    this.getCategoryProduct()
+    this.getCategoryProduct(this.PageNo, this.PageSize, this.category.id)
   }
 
-  getCategoryProduct(){
-    this.cs.getCategoryProducts(this.category.id).subscribe((products) => {
-      this.Products = products
-      console.log(products)
+  getCategoryProduct(pageNo = 1, pageSize= 6, id){
+    this.cs.getCategoryProducts(pageNo, pageSize, id).subscribe((products) => {
+      this.Products = this.Products.concat(products)
     });
   }
 
@@ -35,5 +36,17 @@ export class CategoryProductsPage implements OnInit {
 
   getSelectedProduct(product): void{
     this.rds.setRequestData(this.ps.castObjToProductOnly(product));
+  }
+
+  loadData(event) {
+    setTimeout(() => {
+      this.PageNo += 1;
+      this.getCategoryProduct(this.PageNo, this.PageSize, this.category.id)
+      console.log('Done');
+      event.target.complete();
+      if (this.Products.length == 200) {
+        event.target.disabled = true;
+      }
+    }, 500);
   }
 }
