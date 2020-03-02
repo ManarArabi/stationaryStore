@@ -12,7 +12,7 @@ export class CategoryService {
     return this.http.get(this.url+'/api/category?limit='+pageSize+'&pageNumber='+pageNo);
   }
 
-  getCategoryProducts(id):Observable<any>{
+  getCategoryProducts(pageNo = 1, pageSize= 6, id):Observable<any>{
     return this.http.get(this.url+'/api/category/'+id+'/products')
   }
   
