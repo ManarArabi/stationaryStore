@@ -15,7 +15,7 @@ export class HeaderComponent implements OnInit {
     private ss: SearchService, 
     private rds: RequestDataService,
     private navController: NavController,
-    private authService: AuthService
+    public authService: AuthService
     ) { }
 
   ngOnInit() {}

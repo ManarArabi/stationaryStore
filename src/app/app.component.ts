@@ -50,7 +50,7 @@ export class AppComponent implements OnInit {
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private menu: MenuController,
-    private authService: AuthService
+    public authService: AuthService
   ) {
     this.initializeApp();
   }

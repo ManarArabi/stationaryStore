@@ -11,7 +11,7 @@ export class LightHeaderComponent implements OnInit {
 
   constructor(
     private navController: NavController,
-    private authService: AuthService
+    public authService: AuthService
     ) { }
 
   ngOnInit() {}

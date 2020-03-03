@@ -24,20 +24,20 @@
           <ion-label type="email" class="value"> {{ User.email }} </ion-label>
         </ion-item>
 
-        <ion-item *ngIf="User.phoneNumber != 0 ">
+        <ion-item *ngIf="User.phoneNumber != '' ">
           <ion-label position="fixed"  class="attribute">Phone number</ion-label>
           <ion-label type="number" class="value"> {{ User.phoneNumber }}</ion-label>
         </ion-item>
 
-        <ion-item *ngIf="User.phoneNumber2 != 0 ">
+        <ion-item *ngIf="User.phoneNumber2 != '' ">
           <ion-label position="fixed" class="attribute">Phone number 2</ion-label>
           <ion-label type="number"> {{ User.phoneNumber2 }}</ion-label>
         </ion-item>
 
         <ion-item *ngIf="
           User.addresses[0].streetDetails != ''
-          && User.addresses[0].building != ''
-          && User.addresses[0].apartment != ''
+          && User.addresses[0].building != 0
+          && User.addresses[0].apartment != 0
           && User.addresses[0].city != '' 
           && User.addresses[0].state != ''
           && User.addresses[0].specialMarque != ''">
@@ -48,11 +48,11 @@
                 <ion-label position="fixed" class="attribute">Street details</ion-label>
                 <ion-label class="value"> {{ User.addresses[0].streetDetails }}</ion-label>
               </ion-item>
-              <ion-item *ngIf="User.addresses[0].building != '' ">
+              <ion-item *ngIf="User.addresses[0].building != 0 ">
                 <ion-label position="fixed" class="attribute">Building</ion-label>
                 <ion-label class="value"> {{ User.addresses[0].building }} </ion-label>
               </ion-item>
-              <ion-item *ngIf="User.addresses[0].apartment != '' ">
+              <ion-item *ngIf="User.addresses[0].apartment != 0 ">
                 <ion-label position="fixed" class="attribute">Apartment</ion-label>
                 <ion-label class="value"> {{ User.addresses[0].apartment }} </ion-label>
               </ion-item>
