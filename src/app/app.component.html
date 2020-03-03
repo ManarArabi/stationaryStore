@@ -22,6 +22,10 @@
             <ion-icon slot="start" color="light" name="{{p.icon}}"></ion-icon>
             <ion-label routerLink="{{p.url}}" routerDirection="forward" color="light" (click)="menuClose()" style="padding: 10px;">{{ p.title }}</ion-label>
           </ion-item>
+          <ion-item *ngIf="this.authService.isLoggedIn == true">
+            <ion-icon slot="start" color="light" name="exit"></ion-icon>
+            <ion-label color="light" style="padding: 10px;" (click)="logout()"> Logout </ion-label>
+          </ion-item>
         </ion-list>
       </ion-content>
     </ion-menu>
