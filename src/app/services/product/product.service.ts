@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Product } from '../../types/Product';
+import { EnvService } from './../env/env.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
-  url = 'http://192.168.1.125:8081/stationery_store_api_war';
+
   SelectedProduct: Product = {
     id: 0,
     name: "",
@@ -20,15 +21,18 @@ export class ProductService {
     discount: 0,
     price: 0
   };
-  constructor(private http: HttpClient) {
+  constructor(
+    private http: HttpClient,
+    private env: EnvService
+    ) {
   }
 
   getBestSeller():Observable<any>{
-    return this.http.get(this.url+'/api/product/bestseller?limit=6');
+    return this.http.get(this.env.API_URL+'/api/product/bestseller?limit=6');
   }
 
   getProduct(id):Observable<any>{
-    return this.http.get(this.url+'/api/product/'+id)
+    return this.http.get(this.env.API_URL+'/api/product/'+id)
   }
 
   castOfferToProduct(obj): Product{
@@ -38,7 +42,7 @@ export class ProductService {
     this.SelectedProduct.imageUrl = obj.offer.product.imageUrl;
     this.SelectedProduct.discount = obj.offer.discount;
     this.SelectedProduct.price = obj.price;
-    // this.SelectedProduct.price = this.calculatePrice(obj);
+    
     console.log(this.SelectedProduct)
     return this.SelectedProduct
   }
@@ -50,7 +54,7 @@ export class ProductService {
     this.SelectedProduct.imageUrl = obj.product.imageUrl;
     this.SelectedProduct.discount = obj.discount;
     this.SelectedProduct.price = obj.price;
-    // this.SelectedProduct.price = this.calculatePrice(obj);
+    
     console.log(this.SelectedProduct)
     return this.SelectedProduct
   }

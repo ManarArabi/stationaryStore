@@ -1,16 +1,19 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { EnvService } from './../env/env.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SearchService {
-  url = 'http://192.168.1.125:8081/stationery_store_api_war'
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private env: EnvService
+    ) { }
   
   search(keyWord):Observable<any>{
-    return this.http.get(this.url+'/api/search?limit=3&keyWord='+keyWord);
+    return this.http.get(this.env.API_URL+'/api/search?limit=3&keyWord='+keyWord);
   }
 }

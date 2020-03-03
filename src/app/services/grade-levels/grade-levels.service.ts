@@ -1,23 +1,27 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable} from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { EnvService } from './../env/env.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GradeLevelsService {
-  url = 'http://192.168.1.125:8081/stationery_store_api_war'
-  constructor(private http: HttpClient) { }
+
+  constructor(
+    private http: HttpClient,
+    private env: EnvService
+    ) { }
 
   getGradeLevels(): Observable<any>{
-    return this.http.get(this.url+'/api/grade/levels');
+    return this.http.get(this.env.API_URL+'/api/grade/levels');
   }
 
   getGrades(id): Observable<any>{
-    return this.http.get(this.url+'/api/grade/level/'+id);
+    return this.http.get(this.env.API_URL+'/api/grade/level/'+id);
   }
 
   getGradeProducts(id): Observable<any>{
-    return this.http.get(this.url+'/api/grade/'+id+'/products');
+    return this.http.get(this.env.API_URL+'/api/grade/'+id+'/products');
   }
 }

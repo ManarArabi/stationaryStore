@@ -1,19 +1,23 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { EnvService } from './../env/env.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CategoryService {
-  url = 'http://192.168.1.125:8081/stationery_store_api_war'
-  constructor(private http: HttpClient) { }
+  
+  constructor(
+    private http: HttpClient,
+    private env: EnvService
+    ) { }
   getCategories(pageNo = 1, pageSize = 6):Observable<any>{
-    return this.http.get(this.url+'/api/category?limit='+pageSize+'&pageNumber='+pageNo);
+    return this.http.get(this.env.API_URL+'/api/category?limit='+pageSize+'&pageNumber='+pageNo);
   }
 
   getCategoryProducts(pageNo = 1, pageSize= 6, id):Observable<any>{
-    return this.http.get(this.url+'/api/category/'+id+'/products?limit='+pageSize+'&pageNumber='+pageNo)
+    return this.http.get(this.env.API_URL+'/api/category/'+id+'/products?limit='+pageSize+'&pageNumber='+pageNo)
   }
   
 }
