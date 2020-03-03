@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class GradeLevelsService {
-  url = 'http://192.168.1.2:8081/stationery_store_api_war'
+  url = 'http://192.168.1.125:8081/stationery_store_api_war'
   constructor(private http: HttpClient) { }
 
   getGradeLevels(): Observable<any>{
