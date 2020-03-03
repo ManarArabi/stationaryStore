@@ -3,6 +3,8 @@ import {FormBuilder, FormGroup, Validators, FormControl} from '@angular/forms';
 import { User } from '../types/UserPayLoad';
 import { UserService } from '../services/user/user.service';
 import { Router } from '@angular/router';
+import { AuthService } from '../services/auth/auth.service';
+import { AlertService } from '../services/alert/alert.service';
 
 @Component({
   selector: 'app-registeration',
@@ -12,6 +14,7 @@ import { Router } from '@angular/router';
 export class RegisterationPage implements OnInit {
   public RegisterForm: FormGroup;
   User: User = {
+    id: '',
     firstName: '',
     lastName: '',
     email: '',
@@ -50,7 +53,9 @@ export class RegisterationPage implements OnInit {
   constructor(
     public formBuilder: FormBuilder,
     public us: UserService,
-    private router: Router
+    private router: Router,
+    private alertService: AlertService,
+    private authService: AuthService
     ) { 
 
     this.RegisterForm = formBuilder.group({
@@ -90,9 +95,14 @@ export class RegisterationPage implements OnInit {
     this.User.addresses[0].city = this.RegisterForm.value.city
     this.User.addresses[0].state = this.RegisterForm.value.state
     this.User.addresses[0].specialMarque = this.RegisterForm.value.specialMarque
-    console.log(this.User);
-    // this.us.register(this.User); //waiting for api
-    this.router.navigateByUrl('/home');
+     
+    let registeredUser = this.authService.register(this.User)
+    if(registeredUser != null){
+      this.alertService.presentToast('Registeration done!')
+      this.router.navigateByUrl('/home');
+    }else{
+      this.alertService.presentToast('Can\'t complete registeration, This email is registered before')
+    }
   }
 
 }
