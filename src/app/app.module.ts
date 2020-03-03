@@ -9,6 +9,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import { NativeStorage } from '@ionic-native/native-storage/ngx';
 
 import { ComponentsModule } from './components/components.module';
 import { HeaderComponent } from './components/header/header.component';
@@ -34,6 +35,7 @@ import { LightHeaderComponent } from './components/light-header/light-header.com
   providers: [
     StatusBar,
     SplashScreen,
+    NativeStorage,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
