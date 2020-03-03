@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
+import { AuthService } from './../../services/auth/auth.service';
 
 @Component({
   selector: 'app-light-header',
@@ -8,11 +9,18 @@ import { NavController } from '@ionic/angular';
 })
 export class LightHeaderComponent implements OnInit {
 
-  constructor(private navController: NavController) { }
+  constructor(
+    private navController: NavController,
+    private authService: AuthService
+    ) { }
 
   ngOnInit() {}
 
   navigateToRegister(){
     this.navController.navigateForward('/registeration')
   }
+
+  navigateToProfile(){
+    this.navController.navigateForward('/profile')
+  } 
 }
