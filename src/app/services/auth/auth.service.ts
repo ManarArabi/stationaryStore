@@ -48,6 +48,7 @@ export class AuthService {
   logout() {
     this.token = '';
     this.isLoggedIn = false;
+    this.env.CURRENT_USER = null
   }
   
 }
