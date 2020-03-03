@@ -16,3 +16,7 @@ This app is built by ionic 4 and connected locally with this [backend](https://g
 > npm install
 
 > ionic cordova run android
+
+## Notes for local run: 
+
+* Make sure that the server ip is the same in the code.
