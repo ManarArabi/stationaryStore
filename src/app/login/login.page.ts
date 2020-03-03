@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators, FormControl} from '@angular/forms';
 import { UserCredentail } from '../types/UserCredential';
-import { UserService } from '../services/user/user.service';
 import { Router } from '@angular/router';
+import { AuthService } from '../services/auth/auth.service';
+import { AlertService } from '../services/alert/alert.service';
 
 @Component({
   selector: 'app-login',
@@ -27,8 +28,9 @@ export class LoginPage implements OnInit {
     };
   constructor(
     public formBuilder: FormBuilder, 
-    public us: UserService,
-    private router: Router
+    private router: Router,
+    private authService: AuthService,
+    private alertService: AlertService
     ) {
 
     this.LoginForm = formBuilder.group({
@@ -50,7 +52,12 @@ export class LoginPage implements OnInit {
   login(){
     this.User.email = this.LoginForm.value.email
     this.User.password = this.LoginForm.value.password
-    // this.us.login(this.User)
-    this.router.navigateByUrl('/home');
+    let loggedInUser = this.authService.login(this.User)
+    if(loggedInUser != null){
+      this.alertService.presentToast("Logged In");
+      this.router.navigateByUrl('/home');
+    }else{
+      this.alertService.presentToast("User Not Found");
+    }    
   }
 }
