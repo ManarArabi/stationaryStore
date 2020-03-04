@@ -5,7 +5,7 @@ import { User } from '../../types/UserPayLoad';
   providedIn: 'root'
 })
 export class EnvService {
-  API_URL = 'http://192.168.1.18:8081/stationery_store_api_war';
+  API_URL = 'http://192.168.1.125:8081/stationery_store_api_war'; 
   CURRENT_USER: User;
   constructor() { }
 
