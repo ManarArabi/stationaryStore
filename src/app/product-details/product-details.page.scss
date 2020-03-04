@@ -1,23 +1,18 @@
 
 .product-image{
-    position: relative; 
-    left: 21%;
     width: 240px;
     height: 240px;
 }
 
-.product-name{
-    position: relative; 
-    left: 45%;
-}
 
 .footer{
     background-color: #044C75;
     width: 100%; 
-    height: 200px;
+    height: 190px;
     position: fixed;
     bottom: 0%;
     color: white;
+    margin-top:10px;
 }
 
 .details{
@@ -26,4 +21,10 @@
     height: 105px;
     padding: 20px;
     overflow-y: scroll;
+}
+
+.centered-content-wrapper{
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }

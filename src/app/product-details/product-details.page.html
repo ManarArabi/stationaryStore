@@ -6,8 +6,12 @@
 
 <ion-content>
   <div style="position: relative; top: 10%;">
-    <img class="product-image" src="{{Product.imageUrl[0].imageUrl}}"/>
-    <h1 class="product-name"> {{Product.name}} </h1>
+    <div class="centered-content-wrapper">
+      <img class="product-image" src="{{Product.imageUrl[0].imageUrl}}"/>
+    </div>
+    <div class="centered-content-wrapper">
+      <h1> {{Product.name}} </h1>
+    </div>
   </div>
   <div class="footer">
     <ion-grid>
@@ -23,7 +27,7 @@
           </h1>
         </ion-col>
       </ion-row>
-      <ion-row style="margin-top: 20px">
+      <ion-row style="margin-top: 10px;">
         <ion-col size="12">
           <ion-button expand="full" color="tertiary">Add to Cart</ion-button>
         </ion-col>
