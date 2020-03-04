@@ -20,7 +20,8 @@ ion-thumbnail {
     display:flex;
     justify-content:center;
     align-items:center;
-    width:140px;
+    margin-left: 5px;
+    width:115px;
     height:100px;
 }
 
@@ -39,6 +40,11 @@ ion-thumbnail {
     display:flex;
     justify-content:flex-end;
     align-items:flex-end;
-    width: 45px;
+    width: 30px;
     height: 100px;
+}
+
+.priceText{
+    float:right; 
+    margin-bottom: 10;
 }
