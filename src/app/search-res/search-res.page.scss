@@ -11,7 +11,7 @@ ion-thumbnail {
     display:flex;
     justify-content:center;
     align-items:center;
-    width: 220px;
+    width: auto;
     height: 100px;
 }
 
@@ -20,7 +20,8 @@ ion-thumbnail {
     justify-content:center;
     align-items:center;
     height:100px;
-    width: 140px;
+    margin-left: 5px;
+    width:115px;
 }
 
 .bottomRightCart{
@@ -33,7 +34,7 @@ ion-thumbnail {
     display:flex;
     justify-content:flex-end;
     align-items:flex-end;
-    width: 55px;
+    width: 30px;
     height: 100px;
 }
 
