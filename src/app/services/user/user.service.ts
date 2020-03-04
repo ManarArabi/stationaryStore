@@ -11,9 +11,9 @@ export class UserService {
   constructor( ) { }
 
   addUser(User: User):any{
-    let user = this.Users.filter((user) => {
-      if (user.email == User.email){
-        return user
+    let user = this.Users.filter((u) => {
+      if (u.email == User.email){
+        return u
       }
     })
     if (user.length != 0 ){
@@ -26,11 +26,14 @@ export class UserService {
   }
 
   findUser(User: UserCredentail): any{
-    let user = this.Users.filter((user) => {
-      if (user.email == User.email){
-        return user
+    let user = this.Users.filter((u) => {
+      if (u.email == User.email){
+        return u
       }
     })
+
+    if(user.length != 0)
+      return user[0]
 
     return user
   }

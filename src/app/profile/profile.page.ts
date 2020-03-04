@@ -13,6 +13,7 @@ export class ProfilePage implements OnInit {
     private env: EnvService
     ) { 
     this.User = this.env.CURRENT_USER
+    console.log(this.User)
   }
 
   ngOnInit() {

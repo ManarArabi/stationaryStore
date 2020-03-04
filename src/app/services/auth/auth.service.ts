@@ -27,9 +27,9 @@ export class AuthService {
     if(loggedInUser != null){
       this.token = 'hjkdfhdkjfskdjfh';
       this.isLoggedIn = true;
+      this.env.CURRENT_USER = loggedInUser;
       return loggedInUser;
     }
-    this.env.CURRENT_USER = loggedInUser;
     return null
   }
 

@@ -7,7 +7,7 @@
 
 <ion-content>
   <div class="content-wrapper">
-    <div style="width: 300px;">
+    <div>
       <ion-list lines="full" class="ion-no-margin ion-no-padding">
         <ion-item *ngIf="User.firstName != '' ">
           <ion-label position="fixed" class="attribute">First Name</ion-label>
@@ -33,44 +33,45 @@
           <ion-label position="fixed" class="attribute">Phone number 2</ion-label>
           <ion-label type="number"> {{ User.phoneNumber2 }}</ion-label>
         </ion-item>
-
-        <ion-item *ngIf="
-          User.addresses[0].streetDetails != ''
-          || User.addresses[0].building != 0
-          || User.addresses[0].apartment != 0
-          || User.addresses[0].city != '' 
-          || User.addresses[0].state != ''
-          || User.addresses[0].specialMarque != ''">
-          <ion-list>
-            <ion-label position="fixed" class="attribute">Address</ion-label>
-            <div class="addresses"> 
-              <ion-item *ngIf="User.addresses[0].streetDetails != '' ">
-                <ion-label position="fixed" class="attribute">Street details</ion-label>
-                <ion-label class="value"> {{ User.addresses[0].streetDetails }}</ion-label>
-              </ion-item>
-              <ion-item *ngIf="User.addresses[0].building != 0 ">
-                <ion-label position="fixed" class="attribute">Building</ion-label>
-                <ion-label class="value"> {{ User.addresses[0].building }} </ion-label>
-              </ion-item>
-              <ion-item *ngIf="User.addresses[0].apartment != 0 ">
-                <ion-label position="fixed" class="attribute">Apartment</ion-label>
-                <ion-label class="value"> {{ User.addresses[0].apartment }} </ion-label>
-              </ion-item>
-              <ion-item *ngIf="User.addresses[0].city != '' ">
-                <ion-label position="fixed" class="attribute">City</ion-label>
-                <ion-label class="value">{{ User.addresses[0].city }}</ion-label>
-              </ion-item>
-              <ion-item *ngIf="User.addresses[0].state != '' ">
-                <ion-label position="fixed" class="attribute">State</ion-label>
-                <ion-label class="value">{{ User.addresses[0].state }}</ion-label>
-              </ion-item>
-              <ion-item *ngIf="User.addresses[0].specialMarque != '' ">
-                <ion-label position="fixed" class="attribute">Special Marque</ion-label>
-                <ion-label class="value">{{ User.addresses[0].specialMarque }}</ion-label>
-              </ion-item>
-            </div>
-          </ion-list>
-        </ion-item>
+        <div *ngFor="let address of User.addresses">
+          <ion-item *ngIf="
+            address.streetDetails != ''
+            || address.building != 0
+            || address.apartment != 0
+            || address.city != '' 
+            || address.state != ''
+            || address.specialMarque != ''">
+            <ion-list>
+              <ion-label position="fixed" class="attribute">Address</ion-label>
+              <div class="addresses"> 
+                <ion-item *ngIf="address.streetDetails != '' ">
+                  <ion-label position="fixed" class="attribute">Street details</ion-label>
+                  <ion-label class="value"> {{ address.streetDetails }}</ion-label>
+                </ion-item>
+                <ion-item *ngIf="address.building != 0 ">
+                  <ion-label position="fixed" class="attribute">Building</ion-label>
+                  <ion-label class="value"> {{ address.building }} </ion-label>
+                </ion-item>
+                <ion-item *ngIf="address.apartment != 0 ">
+                  <ion-label position="fixed" class="attribute">Apartment</ion-label>
+                  <ion-label class="value"> {{ address.apartment }} </ion-label>
+                </ion-item>
+                <ion-item *ngIf="address.city != '' ">
+                  <ion-label position="fixed" class="attribute">City</ion-label>
+                  <ion-label class="value">{{ address.city }}</ion-label>
+                </ion-item>
+                <ion-item *ngIf="address.state != '' ">
+                  <ion-label position="fixed" class="attribute">State</ion-label>
+                  <ion-label class="value">{{ address.state }}</ion-label>
+                </ion-item>
+                <ion-item *ngIf="address.specialMarque != '' ">
+                  <ion-label position="fixed" class="attribute">Special Marque</ion-label>
+                  <ion-label class="value">{{ address.specialMarque }}</ion-label>
+                </ion-item>
+              </div>
+            </ion-list>
+          </ion-item>
+        </div>
       </ion-list>
     </div>
   </div>
