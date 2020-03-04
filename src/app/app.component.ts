@@ -4,7 +4,7 @@ import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { MenuController } from '@ionic/angular';
-
+import { Router } from '@angular/router';
 import { AuthService } from './services/auth/auth.service';
 
 @Component({
@@ -51,7 +51,8 @@ export class AppComponent implements OnInit {
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private menu: MenuController,
-    public authService: AuthService
+    public authService: AuthService,
+    private router: Router
   ) {
     this.initializeApp();
   }
@@ -76,8 +77,10 @@ export class AppComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-    this.backButtonSubscription = this.platform.backButton.subscribe(() => {
-      navigator['app'].exitApp();
+    this.backButtonSubscription = this.platform.backButton.subscribeWithPriority(1, () => {
+      if(this.router.isActive('/home', true) && this.router.url === '/home') {
+        navigator['app'].exitApp();
+      }
     });
   }
 
