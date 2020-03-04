@@ -4,6 +4,10 @@ This app is built by ionic 4 and connected locally with this [backend](https://g
 ## Demo
 ![demo](https://github.com/ManarArabi/stationaryStore/blob/master/demo.gif)
 
+## Description:
+You can use this app only for browsing and register users localy, the user can't take actions but register, login or logout.
+
+
 ## Prerequisites:
 
 1. [Node.js & NPM](https://nodejs.org/en/download/).
