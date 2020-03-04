@@ -36,11 +36,11 @@
 
         <ion-item *ngIf="
           User.addresses[0].streetDetails != ''
-          && User.addresses[0].building != 0
-          && User.addresses[0].apartment != 0
-          && User.addresses[0].city != '' 
-          && User.addresses[0].state != ''
-          && User.addresses[0].specialMarque != ''">
+          || User.addresses[0].building != 0
+          || User.addresses[0].apartment != 0
+          || User.addresses[0].city != '' 
+          || User.addresses[0].state != ''
+          || User.addresses[0].specialMarque != ''">
           <ion-list>
             <ion-label position="fixed" class="attribute">Address</ion-label>
             <div class="addresses"> 
