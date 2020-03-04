@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
 
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -13,6 +13,7 @@ import { AuthService } from './services/auth/auth.service';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent implements OnInit {
+  backButtonSubscription;
   public appPages = [
     {
       title: 'Home',
@@ -72,5 +73,15 @@ export class AppComponent implements OnInit {
   logout(){
     this.menuClose()
     this.authService.logout()
+  }
+
+  ngAfterViewInit() {
+    this.backButtonSubscription = this.platform.backButton.subscribe(() => {
+      navigator['app'].exitApp();
+    });
+  }
+
+  ngOnDestroy() { 
+    this.backButtonSubscription.unsubscribe();
   }
 }
