@@ -1,15 +1,6 @@
----
-name: Pull Request
-about: Create a basic PR
-title: ''
-labels:
-assignees: ''
-
----
-
-
-### Description:
-- resolves #
+## Related issue
+resolves #
+## Description:
 - Context: <!-- Provide the abstract implementation procedure and Why you made these decisions -->
 - Implementation strategy:
 
